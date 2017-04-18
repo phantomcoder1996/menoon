@@ -7,7 +7,9 @@
     
     <title>MeNoon LLC</title>
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    {!!Html::style('css/bootstrap.css')!!}
+    {!!Html::style('css/w3.css')!!}
+    {!!Html::style('css/menoon.css')!!}
     <script src="{{ asset('vendor/jquery/jquery.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.js') }}"></script>
     <link rel="icon" href="{{ asset('favicon.ico') }}">

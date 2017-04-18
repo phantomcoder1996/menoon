@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('pages/test');
+    return view('pages/test',['success'=>'2']);
 });
 
 
@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/bs', function () {
     return view('firstbootstrap');
 });
+
+Route::resource('feedback','FeedbackController');

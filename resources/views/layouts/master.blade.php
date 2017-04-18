@@ -3,6 +3,7 @@
   <head>
 @include('includes.head')
 
+@yield('stylesheet')
   </head>
   <body>
 
@@ -22,7 +23,7 @@
     @include('includes.footer')
   </footer>
 
-  
+@yield('script')  
     
   </body>
 </html>
