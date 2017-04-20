@@ -21,15 +21,6 @@
 
 <!--this is the pop up window-->
 
-<div id="popup1" class="overlay">
-  <div class="popup">
-    <h2>Feedback</h2>
-    <a class="close" href="#">&times;</a>
-    <div class="content" id="fbcontent">
-
-    </div>
-  </div>
-</div>
 
 
 
@@ -42,12 +33,18 @@
 <!--here is the feedback modal content-->
 @include('pages.feedback')
 
+@include('pages.newsletter')
+
+@include('pages.more_fb')
+
 <script>
 function DisplayFeedback(feedback_arr)
 {
 var fb_container=document.getElementById("feedback");
 var cnt=min(15,feedback_arr.length);
-for(var i=0;i<cnt/5;i++)
+var cnt2;
+if(cnt<5) cnt2=1; else cnt2=cnt/5;
+for(var i=0;i<cnt2;i++)
 {
   //creating a certain slide
   oneslide=document.createElement("div");
@@ -71,30 +68,39 @@ cardbody=document.createElement("div");
 cardbody.style="padding:20px;text-align:center;margin-top:10px;";
 
 var feedbackstring=feedback_arr[j].content
+  var hiddencontent;
 var longt=false;
-
 if(feedbackstring.length > 60) {feedbackstring = feedbackstring.substring(0,60)+"...";
+longt=true;
+ hiddencontent=document.createElement("INPUT");
+hiddencontent.type="hidden";
+hiddencontent.id="btn"+j;
+hiddencontent.value=feedback_arr[j].content;
 
-  longt=true;
+
+cardcontainer.appendChild(hiddencontent);
+
 }
 cardbody.innerHTML=feedbackstring;
 
-var hiddencontent=document.createElement("input");
-hiddencontent.type="hidden";
-hiddencontent.value=feedback_arr[j].content;
-hiddencontent.id="btn"+j;
 
 
 
-cardbuttonmore=document.createElement("button");
+cardbuttonmore=document.createElement("a");
 cardbuttonmore.className="w3-button w3-block w3-dark-grey";
 //cardbuttonmore.innerHTML="+ More
 cardbuttonmore.style="position:absolute;bottom:0;height:35px;";
 
+
 if(longt)
   {cardbuttonmore.innerHTML="+ More";
-cardbuttonmore.href="#popup1";
-cardbuttonmore.addEventListener("click",function(){var i=hiddencontent.id; displayfb(i);});
+var modalid="#more_fb_modal";
+cardbuttonmore.id="b"+hiddencontent.id;
+cardbuttonmore.addEventListener("click",displayfb);
+
+//init_fb_modal(cardbuttonmore.id,modalid);
+  
+
 
 }
 
@@ -114,22 +120,37 @@ oneslide.appendChild(cardcontainer);
 fb_container.appendChild(oneslide);
 }
 
+
+
+
+
+}
 function min(a,b)
 {
-	if(a<b) return a;
-	else return b;
+  if(a<b) return a;
+  else return b;
 }
 
-
-
-}
-
-function displayfb(id)
+function max(a,b)
 {
+    if(a>b) return a;
+  else return b;
+}
+
+function displayfb()
+{
+  id=this.id;
+
+  id=id.substring(1);
+
 var text=document.getElementById(id).value;
-alert(text);
-var popup=document.getElementById("fbcontent");
+
+var popup=document.getElementById("more_fb_content");
 popup.innerHTML=text;
+
+$("#more_fb_modal").modal("show");
+
+//init_fb_modal(this.id,"#more_fb_modal");
 
 }
 
@@ -190,7 +211,7 @@ function showSlide(i)
 {
 
 var slides=document.getElementsByClassName("feedbackslides");
-if(i==slides.length) slideindex=1;
+if(i>=slides.length) slideindex=1;
 if(i==0) slideindex=slides.length;
 
 for(var j=0;j<slides.length;j++)
@@ -233,6 +254,12 @@ slides[slideindex-1].style.display="block";
   xmlhttp.send();
 
  
+</script>
+
+<script>
+
+$(document).ready(function(){if($('#error-panel').text().length==0){$('#error-panel').hide();}else{$('#error-panel').show("slow");}});
+
 </script>
 
 

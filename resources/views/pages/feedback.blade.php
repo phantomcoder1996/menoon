@@ -5,7 +5,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" style="text-align:center">Your feedback counts :)</h4>
+          <h4 class="modal-title" style="text-align:center;font:Sans-serif">Your feedback counts :)</h4>
         </div>
         <div class="modal-body">
           <!--Here is the feedback form -->
@@ -33,7 +33,7 @@
           <div class="form-group">
               {!! Form::textarea('content',null,array('class'=>'form-control','required'=>'','Maxlength'=>'5000','rows'=>7))!!}
             </div>
-              {!! Form::submit('submit',array('class'=>'btn btn-primary','style'=>'margin-left:40%'))!!}
+              {!! Form::submit('submit',array('class'=>'btn mybtn','style'=>'margin-left:40%'))!!}
     
            {!! Form::close() !!}
 

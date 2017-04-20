@@ -22,3 +22,5 @@ Route::get('/bs', function () {
 });
 
 Route::resource('feedback','FeedbackController');
+
+Route::post('/newsletter','newsletter_controller@storemail');
