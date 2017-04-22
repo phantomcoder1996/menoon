@@ -36,6 +36,9 @@
                                     </li>
                                 </ul>
                             </li>
+                             <li>
+                                 <a data-toggle="modal" href="#fb_modal">Feedback</a>
+                             </li>
                         @endif
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -49,9 +52,7 @@
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
-                    <li>
-                        <a data-toggle="modal" href="#fb_modal">Feedback</a>
-                    </li>
+                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

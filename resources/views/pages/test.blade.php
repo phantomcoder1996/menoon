@@ -354,8 +354,8 @@ var xmlhttp;
                        var e="/storage/"+arr[i].pic.replace("\\","");
                      image.src=e;
 
-                      //heading.innerHTML=arr[i].Date; //content of  heading
-                     // parag.innerHTML=arr[i].Name;
+                      heading.innerHTML=arr[i].name; //content of  heading
+                      parag.innerHTML=arr[i].country;
                       var anchor=document.createElement("a");
                       anchor.className += "hexLink";
                        anchor.setAttribute('id', arr[i].event_id);
