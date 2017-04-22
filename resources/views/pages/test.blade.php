@@ -283,24 +283,23 @@ $(document).ready(function(){if($('#error-panel').text().length==0){$('#error-pa
    <div class="modal1 fade" hidden="true" id="myModal" role="dialog" tabindex="-1">
     <div class="modal1-dialog">
         <div class="modal1-content">
-            <div class="panel panel-filled">
-                <div class="panel-body">
+            
                        <div class="modal1-header">Events</div>
                 <div class="modal1-body">
 
  
  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" >
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" >
          <!-- Indicators -->
           <ol class="carousel-indicators" id="car_ind">
 
-    </ol>  
+          </ol>  
 
        <div class="carousel-inner" role="listbox" id="inner_car">
 
-    </div>
+         </div>
    
-      
+      </div>
 
          <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -312,7 +311,9 @@ $(document).ready(function(){if($('#error-panel').text().length==0){$('#error-pa
       <span class="sr-only">Next</span>
     </a>
 
-    </div>
+ 
+  </div>
+  </div>
   </div>
   </div>
 <script>
@@ -500,17 +501,17 @@ var carin="";         if(arr.length>0)
                  { for(var i=0;i<arr.length;i++)
                   {
                      carin+= "<div class='item";  
-                     inds+= " <li data-target='#myCarousel' data-slide-to="+i;
+                     inds+= " <li data-target='#myCarousel' data-slide-to= '"+i;
                     if(i==0)
                     {
-                      inds+=" class=' active'></li>";
-                      carin+="active'><img src='";
+                      inds+="' class='active'></li>";
+                      carin+=" active'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
                     }
                     else
                     {
-                      inds+="></li>";
+                      inds+="'></li>";
                       carin+="'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";

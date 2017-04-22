@@ -35,13 +35,12 @@
     <link rel="stylesheet" href="{{ URL::to('css/modal.css') }}">      
         <!-- Styles -->
  <style>
-          .carousel {
-            min-width: 650px;
-            min-height: 500px;
-         
-                    }
-          .carousel-inner > .item > img,
-          .carousel-inner > .item > a > img {
+    .carousel {
+      min-width: 650px;
+      min-height: 500px;
+             }
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
              width:600px;
              height:460px;
              margin: auto;
