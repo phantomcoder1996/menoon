@@ -32,15 +32,7 @@
         
       <link rel="stylesheet" href="{{ URL::to('css/hexagon.css') }}">
       
-    <link rel="stylesheet" href="{{ URL::to('css/modal.css') }}">
-     
-    
-    
-
-   
-
-
-
+    <link rel="stylesheet" href="{{ URL::to('css/modal.css') }}">      
         <!-- Styles -->
  <style>
           .carousel {

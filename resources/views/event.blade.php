@@ -88,10 +88,12 @@ var xmlhttp;
                       var heading=document.createElement("h1");
                       
                       var parag=document.createElement("p");
-                      
-                      
-                     image.src=arr[i].pic.replace("\\","");
-
+                      var e="/storage/"+arr[i].pic.replace("\\","");
+                     // var f=arr[i].pic.replace("\\","");
+                      //console.log(f);
+                      //var y=e.concat(f);
+                     image.src=e;
+                     
                       //heading.innerHTML=arr[i].Date; //content of  heading
                      // parag.innerHTML=arr[i].Name;
                       var anchor=document.createElement("a");
@@ -243,14 +245,14 @@ var carin="";         if(arr.length>0)
                     {
                       inds+=" class=' active'></li>";
                       carin+="active'><img src='";
-                      carin+=arr[i].pic;
+                      carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
                     }
                     else
                     {
                       inds+="></li>";
                       carin+="'><img src='";
-                      carin+=arr[i].pic;
+                      carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
                     }
 

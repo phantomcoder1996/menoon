@@ -64,13 +64,7 @@ protected $table = 'deelnemers';
         'token' => 'required', 'email' => 'required|user_emails,email',
     ];
 }
- protected function validator(array $data)
-    {
-        return Validator::make($data, [
-           
-            'email' => 'required|user_emails,email',
-            
-        ]);
-    }
+ //protected function validator(array $data)
+
 
 }
