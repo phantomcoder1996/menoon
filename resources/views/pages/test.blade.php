@@ -501,17 +501,17 @@ var carin="";         if(arr.length>0)
                  { for(var i=0;i<arr.length;i++)
                   {
                      carin+= "<div class='item";  
-                     inds+= " <li data-target='#myCarousel' data-slide-to= '"+i;
+                     inds+= " <li data-target='#myCarousel' data-slide-to= "+i;
                     if(i==0)
                     {
-                      inds+="' class='active'></li>";
+                      inds+=" class='active'></li>";
                       carin+=" active'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
                     }
                     else
                     {
-                      inds+="'></li>";
+                      inds+="></li>";
                       carin+="'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
