@@ -1,11 +1,12 @@
 <?php
 
-namespace menoon\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
-use menoon\Feedback;
+use App\Feedback;
 class FeedbackController extends Controller
 {
     /**
@@ -38,7 +39,10 @@ class FeedbackController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {     $user = Auth::user();
+        if (!$user) {
+            return redirect()->back();
+        }
         $this->validate($request,array('content'=>'required|max:5000'));
 
         //store valid items in database

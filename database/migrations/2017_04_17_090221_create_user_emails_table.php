@@ -14,9 +14,9 @@ class CreateUserEmailsTable extends Migration
     public function up()
     {
         Schema::create('user_emails', function (Blueprint $table) {
-            $table->integer('user_id');
+            $table->integer('user_id')->unique();
             $table->timestamps();
-            $table->string('email',320);
+            $table->string('email',320)->unique();
             $table->boolean('primary1')->default(false);
             $table->primary(array('user_id','email'));
            // $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');

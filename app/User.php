@@ -1,6 +1,6 @@
 <?php
 
-namespace menoon;
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'lname', 'fname', 'password','address','username','membership','pic'
     ];
 
     /**
@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //  public function userEmail()
+    // {
+    //     return $this->hasOne('App\userEmail');
+    // }
 }

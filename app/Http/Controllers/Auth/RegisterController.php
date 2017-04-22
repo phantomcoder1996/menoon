@@ -1,11 +1,15 @@
 <?php
 
-namespace menoon\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
-use menoon\User;
-use menoon\Http\Controllers\Controller;
+use App\User;
+use App\user_emails;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class RegisterController extends Controller
 {
@@ -27,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,9 +52,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'fname' => 'required|max:255',
+            'username' => 'required|max:255|unique:users',
+            'email' => 'required|email|max:255|unique:user_emails,email',
             'password' => 'required|min:6|confirmed',
+            'lname'=>'required|max:255',
+            'address'=>'required|max:500',
+            'membership'=>'required',
+            'pic'=>'required',
         ]);
     }
 
@@ -62,10 +71,41 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+
+      $fileName = 'null';
+      Input::file('pic')->store('avatars');
+      if (Input::file('pic')->isValid()) {
+        $destinationPath = public_path('uploads/files');
+        $extension = Input::file('pic')->getClientOriginalExtension();
+        $fileName = uniqid().'.'.$extension;
+
+        Input::file('pic')->move($destinationPath, $fileName);
+    }
+          
+
+        $user= User::create([
+            'fname' => $data['fname'],
+            'lname' => $data['lname'],
+            'address' => $data['address'],
+            'username' => $data['username'],         
+            'membership' => $data['membership'],
+            'pic'=>$fileName,
             'password' => bcrypt($data['password']),
         ]);
+        $user->save();
+      // $user->userEmail()->save(new userEmail(['email'=>$data['email']]));
+        //    $flight = new user_emails;
+
+        // $flight->email = $data['email'];
+        //  $flight->user_id=$user->id;
+        // $flight->save();
+        // $useremail=user_emails::create(['email'=>$data['email'],'user_id'=>$user->id]);
+         //$useremail->save();
+       // // dd($useremail);
+       //  $user->useremail()->save($useremail);
+        DB::table('user_emails')->insert(
+    ['email' => $data['email'], 'user_id'=>$user->id]
+);
+        return $user;
     }
 }

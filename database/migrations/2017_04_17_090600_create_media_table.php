@@ -17,7 +17,7 @@ class CreateMediaTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->integer('event_id');
-            $table->string('URL',1000)->nullable();
+            $table->string('pic',1000)->nullable();
             $table->string('type',10)->nullable();
               //  $table->foreign('event_id')->references('id')->on('events')->onUpdate('cascade')->onDelete('cascade');
         });

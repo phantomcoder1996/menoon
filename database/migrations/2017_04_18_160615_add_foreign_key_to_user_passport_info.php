@@ -15,7 +15,7 @@ class AddForeignKeyToUserPassportInfo extends Migration
     {
         Schema::table('user_passport_info', function (Blueprint $table) {
             //
-            $table->foreign('user_id')->references('id')->on(users)->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

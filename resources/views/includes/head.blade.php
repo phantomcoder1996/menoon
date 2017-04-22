@@ -13,3 +13,49 @@
     <script src="{{ asset('vendor/jquery/jquery.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.js') }}"></script>
     <link rel="icon" href="{{ asset('favicon.ico') }}">
+
+
+
+       <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+      <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+      
+
+        <!-- Fonts -->
+        
+      <link rel="stylesheet" href="{{ URL::to('css/hexagon.css') }}">
+      
+    <link rel="stylesheet" href="{{ URL::to('css/modal.css') }}">
+     
+    
+    
+
+   
+
+
+
+        <!-- Styles -->
+ <style>
+          .carousel {
+            min-width: 650px;
+            min-height: 500px;
+         
+                    }
+          .carousel-inner > .item > img,
+          .carousel-inner > .item > a > img {
+             width:600px;
+             height:460px;
+             margin: auto;
+             margin-top: 20px;
+          
+          }
+  
+  </style>
+       

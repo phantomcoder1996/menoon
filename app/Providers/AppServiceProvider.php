@@ -1,8 +1,9 @@
 <?php
 
-namespace menoon\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use  Illuminate\Support\Facades\Schema; // At the top of your file
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        Schema::defaultStringLength(191);
     }
 
     /**

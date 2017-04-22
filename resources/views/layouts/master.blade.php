@@ -12,11 +12,17 @@
 
 </header>
 
-<div class="container-fluid">
+
 
 @yield('content')
 
-</div>
+
+
+
+
+
+
+
 
     
  <footer class="footer">
@@ -24,6 +30,8 @@
   </footer>
 
 @yield('script')  
+
+
     
   </body>
 </html>

@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 
+//Route::get('/', function(){return view("pages/test");});
+//Route::get('/', function(){return view("event");});
+
 
 Route::get('/bs', function () {
     return view('firstbootstrap');
@@ -24,3 +27,17 @@ Route::get('/bs', function () {
 Route::resource('feedback','FeedbackController');
 
 Route::post('/newsletter','newsletter_controller@storemail');
+
+
+//::get('/', function(){return view("pages/test");});
+Route::get('/media','MediaController@getmedia');
+
+  // Route::get('/{id}', [
+  //       'uses' => 'MediaController@getpic',
+  //       'as' => 'event'
+  //   ]);
+
+Route::get('/media2/{id}','MediaController@getpic');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
