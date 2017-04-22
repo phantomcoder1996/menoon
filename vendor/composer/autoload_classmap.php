@@ -27,6 +27,7 @@ return array(
     'AddForeignKeyToNationalIds' => $baseDir . '/database/migrations/2017_04_18_162240_add_foreign_key_to_national_ids.php',
     'AddForeignKeyToUserBirthCertificates' => $baseDir . '/database/migrations/2017_04_18_162741_add_foreign_key_to_user_birth_certificates.php',
     'AddForeignKeyToUserPassportInfo' => $baseDir . '/database/migrations/2017_04_18_160615_add_foreign_key_to_user_passport_info.php',
+    'AddMailingListFlag' => $baseDir . '/database/migrations/2017_04_18_225516_add_mailing_list_flag.php',
     'CreateAdminEmailsTable' => $baseDir . '/database/migrations/2017_04_17_091032_create_admin_emails_table.php',
     'CreateAdminPhonenumbersTable' => $baseDir . '/database/migrations/2017_04_17_091057_create_admin_phonenumbers_table.php',
     'CreateAdminsTable' => $baseDir . '/database/migrations/2017_04_17_091006_create_admins_table.php',
@@ -589,4 +590,6 @@ return array(
     'SebastianBergmann\\ResourceOperations\\ResourceOperations' => $vendorDir . '/sebastian/resource-operations/src/ResourceOperations.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'eventsTableSeeder' => $baseDir . '/database/seeds/eventsTableSeeder.php',
+    'mediaTableSeeder' => $baseDir . '/database/seeds/mediaTableSeeder.php',
 );
