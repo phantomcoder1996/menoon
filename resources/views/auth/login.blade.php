@@ -7,6 +7,19 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
+             <!--   @if (count($errors->login) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->login->all() as $error)
+                                    <P>{{ $error }}</p>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @endif 
+                            @if (Session::has('message'))
+                            <div class="alert alert-warning">{{ Session::get('message') }}</div>
+                            @endif
+                            -->
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 

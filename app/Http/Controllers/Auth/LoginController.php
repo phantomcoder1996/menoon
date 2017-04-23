@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Redirect;
+use Session;
+use Validator;
+use Illuminate\Support\Facades\Input;
+use Hash;
+use Auth;
 class LoginController extends Controller
 {
     /*
@@ -26,6 +31,10 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+   /**  public function showLoginForm()
+    {
+        return view('auth.login');
+    }*/
 
     /**
      * Create a new controller instance.
@@ -41,4 +50,49 @@ class LoginController extends Controller
    {
     return 'username';
    }
+
+   /** public function login(Request $request)
+    {
+       $rules=array('username'=>'required',
+        'password'=>'reqiured');
+       $validator =validator::make(Input::all(),$rules);
+       if($validator->fails())
+       {
+        return Redirect::back()->withErrors($validator,'login')->withInput();
+       }
+    }**/
+/**
+    public function login(Request $request) {
+        $rules = array (
+                
+                'username' => 'required',
+                'password' => 'required' 
+        );
+        $validator = Validator::make ( Input::all (), $rules );
+        if ($validator->fails ()) {
+            return Redirect::back ()->withErrors ( $validator, 'login' )->withInput ();
+        } else {
+            if (Auth::attempt ( array (
+                    
+                    'username' => $request->get ( 'username' ),
+                    'password' => $request->get ( 'password' ) 
+            ) )) {
+                session ( [ 
+                        
+                        'username' => $request->get ( 'username' ) 
+                ] );
+                return redirect()->back();
+            } else {
+                Session::flash ( 'message', "Invalid Credentials , Please try again." );
+                return Redirect::back ();
+            }
+        }
+    }
+
+    public function logout() {
+        Session::flush ();
+        Auth::logout ();
+        return Redirect::back ();
+    }*/
+
 }
