@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Auth;
 
 use App\Feedback;
+use App\User;
 class FeedbackController extends Controller
 {
     /**
@@ -15,8 +16,10 @@ class FeedbackController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $feedbacks=DB::table('Feedback')->select('content')->orderby("created_at","desc")->get();
+    {   $feedbacks=DB::table('Feedback')->join('users', 'users.id', '=', 'feedback.user_id')
+        ->orderby("feedback.created_at","desc")->get();
+
+        //$feedbacks=DB::table('Feedback')->select('content')->orderby("created_at","desc")->get();
            
         return response()->json($feedbacks);
 
@@ -49,13 +52,15 @@ class FeedbackController extends Controller
         $feedback=new Feedback;
 
         $feedback->content=$request->content;
+       // dd($request->user_id);
+        $feedback->user_id=$request->user_id;
 
         $feedback->save();
 
           
-        return view('pages/test',['success'=>'1']);
-
-        //return redirect()->route('pages.test')->withSuccess($success);
+       // return view('pages/test',['success'=>'1']);
+$success=1;
+        return redirect('/')->withSuccess($success);
 
 
  //return View::make('pages.test')->withSuccess($success);

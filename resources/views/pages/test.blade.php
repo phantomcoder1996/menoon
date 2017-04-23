@@ -61,7 +61,7 @@ cardcontainer.className="feedback_card";
 
 cardheader=document.createElement("header");
 cardheader.className=" w3-light-blue";
-cardheader.innerHTML="user name";
+cardheader.innerHTML=feedback_arr[j].username;
 cardheader.style="position:relative;top:0;display:flex;height:30px;width:100%;text-align:center;"
 
 
@@ -76,7 +76,8 @@ if(feedbackstring.length > 60) {feedbackstring = feedbackstring.substring(0,60)+
 longt=true;
  hiddencontent=document.createElement("INPUT");
 hiddencontent.type="hidden";
-hiddencontent.id="btn"+j;
+//hiddencontent.id="btn"+j;
+hiddencontent.id=feedback_arr[j].id;
 hiddencontent.value=feedback_arr[j].content;
 
 
@@ -247,7 +248,7 @@ slides[slideindex-1].style.display="block";
           DisplayFeedback(arr);
           showSlide(1);
           createbuttons();
-          
+          console.log(arr);
 
     }
   };
@@ -501,17 +502,17 @@ var carin="";         if(arr.length>0)
                  { for(var i=0;i<arr.length;i++)
                   {
                      carin+= "<div class='item";  
-                     inds+= " <li data-target='#myCarousel' data-slide-to= "+i;
+                     inds+= " <li data-target='#myCarousel' data-slide-to= '"+i;
                     if(i==0)
                     {
-                      inds+=" class='active'></li>";
+                      inds+="' class='active'></li>";
                       carin+=" active'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
                     }
                     else
                     {
-                      inds+="></li>";
+                      inds+="''></li>";
                       carin+="'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";

@@ -37,7 +37,7 @@
                                 </ul>
                             </li>
                              <li>
-                                 <a data-toggle="modal" href="#fb_modal">Feedback</a>
+                                   <a data-toggle="modal" href="#fb_modal">Feedback</a>
                              </li>
                         @endif
                     <li>

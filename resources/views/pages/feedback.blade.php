@@ -33,8 +33,14 @@
           <div class="form-group">
               {!! Form::textarea('content',null,array('class'=>'form-control','required'=>'','Maxlength'=>'5000','rows'=>7))!!}
             </div>
-              {!! Form::submit('submit',array('class'=>'btn mybtn','style'=>'margin-left:40%'))!!}
-    
+            @if (!Auth::guest())
+              <input type="hidden" value= "{{Auth::user()->id}}" name="user_id" id="user_id"></input>
+              @endif
+              
+              
+                 {!! Form::submit('submit',array('class'=>'btn mybtn','style'=>'margin-left:40%'))!!}
+
+             
            {!! Form::close() !!}
 
 
