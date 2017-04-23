@@ -1,6 +1,6 @@
 <?php
 
-namespace menoon;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 

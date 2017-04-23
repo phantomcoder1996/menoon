@@ -1,12 +1,12 @@
 <?php
 
-namespace menoon\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Validator;
-use menoon\guest_newsletter;
-use menoon\user_emails;
+use App\guest_newsletter;
+use App\user_emails;
 
 class newsletter_controller extends Controller
 {

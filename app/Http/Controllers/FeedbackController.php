@@ -1,12 +1,12 @@
 <?php
 
-namespace menoon\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use menoon\Http\Requests\store_fb;
+use App\Http\Requests\store_fb;
 
-use menoon\Feedback;
+use App\Feedback;
 class FeedbackController extends Controller
 {
     /**

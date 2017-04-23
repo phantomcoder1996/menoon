@@ -21,7 +21,7 @@
             "database"
         ],
         "psr-4": {
-            "menoon\\": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {

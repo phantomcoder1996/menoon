@@ -23,10 +23,6 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'm' => 
-        array (
-            'menoon\\' => 7,
-        ),
         'X' => 
         array (
             'XdgBaseDir\\' => 11,
@@ -98,6 +94,10 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
             'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
+        'A' => 
+        array (
+            'App\\' => 4,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -106,10 +106,6 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-        ),
-        'menoon\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -251,6 +247,10 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -326,6 +326,7 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         'AddForeignKeyToNationalIds' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_162240_add_foreign_key_to_national_ids.php',
         'AddForeignKeyToUserBirthCertificates' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_162741_add_foreign_key_to_user_birth_certificates.php',
         'AddForeignKeyToUserPassportInfo' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_160615_add_foreign_key_to_user_passport_info.php',
+        'AddMailingListFlag' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_225516_add_mailing_list_flag.php',
         'CreateAdminEmailsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091032_create_admin_emails_table.php',
         'CreateAdminPhonenumbersTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091057_create_admin_phonenumbers_table.php',
         'CreateAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091006_create_admins_table.php',
@@ -429,6 +430,7 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'ModifyRevField' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_180449_modify_rev_field.php',
+        'ModifyUserConstraints' => __DIR__ . '/../..' . '/database/migrations/2017_04_19_180631_modify_user_constraints.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
