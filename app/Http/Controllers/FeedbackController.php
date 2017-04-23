@@ -4,6 +4,7 @@ namespace menoon\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use menoon\Http\Requests\store_fb;
 
 use menoon\Feedback;
 class FeedbackController extends Controller
@@ -37,9 +38,9 @@ class FeedbackController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(store_fb $request)
     {
-        $this->validate($request,array('content'=>'required|max:5000'));
+       // $this->validate($request,array('content'=>'required|max:5000'));
 
         //store valid items in database
         $feedback=new Feedback;

@@ -17,7 +17,7 @@ class CreateEventAdminsTable extends Migration
             $table->integer('event_id');
             $table->integer('admin_id');
             $table->timestamps();
-                        $table->primary(array('admin_id','event_id'));
+            $table->primary(array('admin_id','event_id'));
             // $table->foreign('event_id')->references('id')->on('events')->onUpdate('cascade')->onDelete('cascade');
             // $table->foreign('admin_id')->references('id')->on('admins')->onUpdate('cascade')->onDelete('cascade');
         });
