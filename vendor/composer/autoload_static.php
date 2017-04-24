@@ -327,10 +327,9 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         'AddForeignKeyToUserBirthCertificates' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_162741_add_foreign_key_to_user_birth_certificates.php',
         'AddForeignKeyToUserPassportInfo' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_160615_add_foreign_key_to_user_passport_info.php',
         'AddMailingListFlag' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_225516_add_mailing_list_flag.php',
-<<<<<<< HEAD
+
         'AddUserIdToFbtable' => __DIR__ . '/../..' . '/database/migrations/2017_04_23_091450_add_user_id_to_fbtable.php',
-=======
->>>>>>> origin/master
+
         'CreateAdminEmailsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091032_create_admin_emails_table.php',
         'CreateAdminPhonenumbersTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091057_create_admin_phonenumbers_table.php',
         'CreateAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091006_create_admins_table.php',
