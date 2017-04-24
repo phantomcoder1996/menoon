@@ -76,8 +76,8 @@ if(feedbackstring.length > 60) {feedbackstring = feedbackstring.substring(0,60)+
 longt=true;
  hiddencontent=document.createElement("INPUT");
 hiddencontent.type="hidden";
-//hiddencontent.id="btn"+j;
-hiddencontent.id=feedback_arr[j].id;
+hiddencontent.id="btn"+j;
+//hiddencontent.id=feedback_arr[j].id;
 hiddencontent.value=feedback_arr[j].content;
 
 

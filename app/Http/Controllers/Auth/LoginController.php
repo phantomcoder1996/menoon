@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Redirect;
@@ -50,6 +52,25 @@ class LoginController extends Controller
    {
     return 'username';
    }
+    // public function postLogin(Request $request)
+    //     {
+    //         $this->validate($request, [
+    //             'username' => 'required', 'password' => 'required',
+    //         ]);
+    
+    //         $credentials = $request->only('username', 'password');
+    
+    //         if ($this->auth->attempt($credentials, $request->has('remember')))
+    //         {
+    //             return redirect()->intended($this->redirectPath());
+    //         }
+    
+    //         return redirect($this->loginPath())
+    //             ->withInput($request->only('username', 'remember'))
+    //             ->withErrors([
+    //                 'username' => $this->getFailedLoginMessage(),
+    //             ]);
+    //     }
 
    /** public function login(Request $request)
     {

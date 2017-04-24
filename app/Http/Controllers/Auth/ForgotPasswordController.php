@@ -1,7 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Auth;
+
+
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Support\Facades\Validator;
@@ -64,6 +68,8 @@ protected $table = 'deelnemers';
         'token' => 'required', 'email' => 'required|user_emails,email',
     ];
 }
+
+
  //protected function validator(array $data)
 
 

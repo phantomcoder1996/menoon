@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 use Auth;
 
 use App\Feedback;
 use App\User;
+
+use App\Http\Requests\store_fb;
+
+use App\Feedback;
+
 class FeedbackController extends Controller
 {
     /**
@@ -47,6 +53,11 @@ class FeedbackController extends Controller
             return redirect()->back();
         }
         $this->validate($request,array('content'=>'required|max:5000'));
+
+    public function store(store_fb $request)
+    {
+       // $this->validate($request,array('content'=>'required|max:5000'));
+
 
         //store valid items in database
         $feedback=new Feedback;
