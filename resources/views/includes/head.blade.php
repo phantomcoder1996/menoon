@@ -16,19 +16,7 @@
 
 
 
-       <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
-      <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-      
-
-        <!-- Fonts -->
+             <!-- Fonts -->
         
       <link rel="stylesheet" href="{{ URL::to('css/hexagon.css') }}">
       
@@ -49,4 +37,17 @@
           }
   
   </style>
+   <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+      <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+      
+
+ 
        

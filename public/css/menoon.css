@@ -6,7 +6,7 @@ margin-left:10px;
 position:relative;
 opacity:0.7;
 animation:cardmove 5s ;
-display:inline-flex;
+display:inline-block;
 text-align: center;
 top:10px;
 flex-flow: row wrap;
@@ -69,5 +69,27 @@ margin:auto;
 
 
 
+
+}
+
+.feedback_body
+{
+  padding:10px;
+  text-align:center;
+  margin-top:5px;
+  display:flex;
+  overflow-wrap:break-word;
+  overflow: hidden;
+  border-left:1em transparent;
+  line-break:strict;
+}
+
+.feedback_header
+{
+  position:relative;
+  top:0;display:flex;
+  height:30px;
+  width:100%;
+  text-align:center;
 
 }

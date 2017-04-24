@@ -61,18 +61,22 @@ cardcontainer.className="feedback_card";
 
 cardheader=document.createElement("header");
 cardheader.className=" w3-light-blue";
+cardheader.className+=" feedback_header";
 cardheader.innerHTML=feedback_arr[j].username;
-cardheader.style="position:relative;top:0;display:flex;height:30px;width:100%;text-align:center;"
-
+//cardheader.style="position:relative;top:0;display:flex;height:30px;width:100%;text-align:center;"
+//
 
 cardbody=document.createElement("div");
-//cardbody.className="";
-cardbody.style="padding:20px;text-align:center;margin-top:10px;";
+cardbody.className="feedback_body";
+//cardbody.style="padding:10px;text-align:center;margin-top:5px;";
+//cardbody.style.visibility="hidden";
 
 var feedbackstring=feedback_arr[j].content
   var hiddencontent;
 var longt=false;
-if(feedbackstring.length > 60) {feedbackstring = feedbackstring.substring(0,60)+"...";
+
+if(feedbackstring.length > 40) {feedbackstring = feedbackstring.substring(0,40)+"...";
+alert(feedbackstring.length);
 longt=true;
  hiddencontent=document.createElement("INPUT");
 hiddencontent.type="hidden";
@@ -84,7 +88,10 @@ hiddencontent.value=feedback_arr[j].content;
 cardcontainer.appendChild(hiddencontent);
 
 }
+//var x=document.createElement("div");
 cardbody.innerHTML=feedbackstring;
+//cardbody.appendChild(x);
+//cardbody.innerHTML=feedbackstring;
 
 
 
