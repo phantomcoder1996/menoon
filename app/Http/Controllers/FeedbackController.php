@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Requests\store_fb;
+
 
 
 use Auth;
@@ -14,7 +14,7 @@ use App\User;
 
 use App\Http\Requests\store_fb;
 
-use App\Feedback;
+
 
 
 class FeedbackController extends Controller
