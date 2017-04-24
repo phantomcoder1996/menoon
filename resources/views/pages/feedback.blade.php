@@ -1,3 +1,7 @@
+
+<div id="feedback" class="w3-container" style="margin-top:10%;text-align:center">
+</div>
+
 <div class="modal fade" id="fb_modal" role="dialog">
     <div class="modal-dialog">
     

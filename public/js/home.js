@@ -1,4 +1,5 @@
-<script>
+
+
 function DisplayFeedback(feedback_arr)
 {
 var fb_container=document.getElementById("feedback");
@@ -124,8 +125,6 @@ $("#more_fb_modal").modal("show");
 }
 
 
-</script>
-<script>
 var slideindex=1;
 function createbuttons()
 {
@@ -168,9 +167,7 @@ showSlide(slideindex);
 
 
 
-</script>
 
-<script>
 
 // this script is responsible for showing one slide and hiding the rest 
 
@@ -196,9 +193,7 @@ slides[slideindex-1].style.display="block";
 
 
 
-</script>
 
-<script>
 
   var xmlhttp;
   if (window.XMLHttpRequest) {
@@ -223,11 +218,7 @@ slides[slideindex-1].style.display="block";
   xmlhttp.send();
 
  
-</script>
 
-<script>
 
 $(document).ready(function(){if($('#error-panel').text().length==0){$('#error-panel').hide();}else{$('#error-panel').show("slow");}});
 
-</script>
- {!!Html::script('js/parsley.min.js') !!}
