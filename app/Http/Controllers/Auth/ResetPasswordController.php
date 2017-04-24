@@ -36,4 +36,13 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    protected function rules()
+    {
+        return [
+            'token' => 'required',
+            'email' => 'required|email|exists:user_emails',
+            'password' => 'required|confirmed|min:6',
+        ];
+    }
 }

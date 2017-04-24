@@ -46,13 +46,14 @@ protected $table = 'deelnemers';
       public function sendResetLinkEmail(Request $request)
     {
           
-        $this->validate($request, ['email' => 'required|user_emails,email']);
+        $this->validate($request, ['email' => 'required|email|exists:user_emails']);
+         $rules = [
+            
+            'email' => 'required|email|exists:user_emails',
+            
+        ];
 
-
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
-        $response = $this->broker()->sendResetLink(
+         $response = $this->broker()->sendResetLink(
             $request->only('email')
         );
 
@@ -67,7 +68,7 @@ protected $table = 'deelnemers';
     protected function rules()
 {
     return [
-        'token' => 'required', 'email' => 'required|user_emails,email',
+        'token' => 'required', 'email' => 'required|email|exists:user_emails',
     ];
 }
 
