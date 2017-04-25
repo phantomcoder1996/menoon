@@ -6,6 +6,7 @@ use App\User;
 
 
 use App\user_emails;
+use App\guest_newsletter;
 
 
 use App\Http\Controllers\Controller;
@@ -107,9 +108,23 @@ class RegisterController extends Controller
          //$useremail->save();
        // // dd($useremail);
        //  $user->useremail()->save($useremail);
+        $em=trim($data['email']);
         DB::table('user_emails')->insert(
-    ['email' => $data['email'], 'user_id'=>$user->id]
+    ['email' => $em, 'user_id'=>$user->id]
+   
+
 );
+         //checking if the user has subscribed to newsletter before registering .If so, the users email is removed from guest newsletter
+    //and mailing list flag is set to true;
+    $email=guest_newsletter::where('email',$em)->first();
+    if($email!=NULL)
+    {
+        DB::table('guest_newsletters')->where('email',$em)->delete();
+        user_emails::where('email',$em)->update(['mailinglist_flag'=>true]);
+    }
+
+
+
         return $user;
     }
 }
