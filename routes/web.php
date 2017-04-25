@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('pages/test',['success'=>'2']);
+    return view('pages/test');
 });
 
 

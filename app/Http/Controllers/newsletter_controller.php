@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Validator;
 use App\guest_newsletter;
 use App\user_emails;
-
+use Session;
 class newsletter_controller extends Controller
 {
     //
@@ -34,7 +34,7 @@ class newsletter_controller extends Controller
          $email=user_emails::where('email',$request->email)->first();
          if($email==NULL)
 
-{
+      {
 
          $subscription=new guest_newsletter;
 
@@ -42,10 +42,21 @@ class newsletter_controller extends Controller
        
          $subscription->save();
 
+         Session::flash('success','Thanks for subscribing to our newsletter !');
+
      }
      else
      {
-        $email=user_emails::where('email',$request->email)->update(['mailinglist_flag'=>true]);
+        $em=trim($request->email);
+        $emailcheck=DB::table('user_emails')->where('email',$em)->value('mailinglist_flag');
+        if($emailcheck==1)
+        {
+            Session::flash('success','You have subscribed using this email before !');
+        }
+        else
+        {$email=user_emails::where('email',$em)->update(['mailinglist_flag'=>true]);
+           Session::flash('success','Thanks for subscribing to our newsletter !');
+}
        // $email->save();
      }
          //return view('pages/test',['success'=>'2']);

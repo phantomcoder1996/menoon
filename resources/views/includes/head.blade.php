@@ -13,7 +13,7 @@
     <script src="{{ asset('vendor/jquery/jquery.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.js') }}"></script>
     <link rel="icon" href="{{ asset('favicon.ico') }}">
-
+ 
 
 
              <!-- Fonts -->

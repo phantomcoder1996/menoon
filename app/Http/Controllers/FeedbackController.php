@@ -13,6 +13,7 @@ use App\Feedback;
 use App\User;
 
 use App\Http\Requests\store_fb;
+use Session;
 
 
 
@@ -60,6 +61,7 @@ class FeedbackController extends Controller
 
         //store valid items in database
         $feedback=new Feedback;
+  
 
         $feedback->content=$request->content;
        // dd($request->user_id);
@@ -67,10 +69,10 @@ class FeedbackController extends Controller
 
         $feedback->save();
 
-          
+          Session::flash('success','Your feedback was successfully submitted !');
        // return view('pages/test',['success'=>'1']);
-$success=1;
-        return redirect('/')->withSuccess($success);
+        
+        return redirect('/');
 
 
  //return View::make('pages.test')->withSuccess($success);
