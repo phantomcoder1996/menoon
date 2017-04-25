@@ -64,7 +64,7 @@ class RegisterController extends Controller
             'lname'=>'required|max:255',
             'address'=>'required|max:500',
             'membership'=>'required',
-            'pic'=>'required',
+            
         ]);
     }
 
@@ -76,16 +76,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-      $fileName = 'null';
-      Input::file('pic')->store('avatars');
-      if (Input::file('pic')->isValid()) {
+          $fileName = 'null';
+      if(Input::hasFile('pic'))
+    {  if (Input::file('pic')->isValid()) {
         $destinationPath = public_path('uploads/files');
         $extension = Input::file('pic')->getClientOriginalExtension();
         $fileName = uniqid().'.'.$extension;
 
         Input::file('pic')->move($destinationPath, $fileName);
+
+        
+      Input::file('pic')->store('avatars');
     }
+}
           
 
         $user= User::create([

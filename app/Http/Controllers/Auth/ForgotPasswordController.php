@@ -47,26 +47,24 @@ protected $table = 'user_emails';
     {
           
         $this->validate($request, ['email' => 'required|email|exists:user_emails']);
-         $rules = [
-            
-            'email' => 'required|email|exists:user_emails',
-            
-        ];
-
-        
-
-         $response = $this->broker()->sendResetLink(
+       
+               $response = $this->broker()->sendResetLink(
             $request->only('email')
         );
-
 
         return $response == Password::RESET_LINK_SENT
                     ? $this->sendResetLinkResponse($response)
                     : $this->sendResetLinkFailedResponse($request, $response);
+        
+
+
     }
 
 
-
+public function broker()
+    {
+         return Password::broker('emails');
+    }
 
     protected function rules()
 {
