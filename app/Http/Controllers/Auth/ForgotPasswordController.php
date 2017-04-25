@@ -47,7 +47,7 @@ protected $table = 'user_emails';
     {
           
         $this->validate($request, ['email' => 'required|email|exists:user_emails']);
-       
+      // alert('mmmm');
                $response = $this->broker()->sendResetLink(
             $request->only('email')
         );

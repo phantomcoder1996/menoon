@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'emails',
     ],
 
     /*
@@ -41,9 +41,9 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
+        'web_email' => [
+            'driver' => 'session',
+            'provider' => 'emails',
         ],
     ],
 
@@ -70,10 +70,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         'emails' => [
+            'driver' => 'eloquent',
+            'model' => App\user_emails::class,
+         ],
     ],
 
     /*
@@ -92,8 +92,8 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'emails' => [
+            'provider' => 'emails',
             'table' => 'password_resets',
             'expire' => 60,
         ],

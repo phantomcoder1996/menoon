@@ -38,6 +38,7 @@ Route::get('/media','MediaController@getmedia');
   //   ]);
 
 Route::get('/media2/{id}','MediaController@getpic');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
