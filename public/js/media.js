@@ -15,7 +15,7 @@ var xmlhttp;
 
                  // console.log(arr.result.length);
                   // console.log(arr);
-                  alert(this.responseText);
+                  
                   var count=arr.length;
                   if(count!=0)
                   {
@@ -88,7 +88,7 @@ var xmlhttp;
                       ule.appendChild(listelement);}
                     }
                   }
-                  else { var parag=document.createElement("p");parag.innerHTML="nmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmo";
+                  else { var parag=document.createElement("p");parag.innerHTML="no";
                 var ule=document.getElementById("hexGrid");
                       ule.appendChild(parag);};
 
@@ -176,7 +176,7 @@ var carin="";         if(arr.length>0)
                         console.log(arr.length);
 
 
-                  alert(this.responseText);
+                
 
 
 

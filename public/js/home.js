@@ -36,7 +36,7 @@ var feedbackstring=feedback_arr[j].content
 var longt=false;
 
 if(feedbackstring.length > 40) {feedbackstring = feedbackstring.substring(0,40)+"...";
-alert(feedbackstring.length);
+
 longt=true;
  hiddencontent=document.createElement("INPUT");
 hiddencontent.type="hidden";
@@ -57,9 +57,10 @@ cardbody.innerHTML=feedbackstring;
 
 
 cardbuttonmore=document.createElement("a");
-cardbuttonmore.className="w3-button w3-block w3-dark-grey";
+cardbuttonmore.className="w3-button w3-block w3-dark-grey feedback_footer";
+//cardbuttonmore.className="";
 //cardbuttonmore.innerHTML="+ More
-cardbuttonmore.style="position:absolute;bottom:0;height:35px;";
+//cardbuttonmore.style="position:absolute;bottom:0;height:35px;";
 
 
 if(longt)
