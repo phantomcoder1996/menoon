@@ -32,7 +32,7 @@ class ForgotPasswordController extends Controller
     */
 
     use SendsPasswordResetEmails;
-protected $table = 'deelnemers';
+protected $table = 'user_emails';
     /**
      * Create a new controller instance.
      *
@@ -53,9 +53,12 @@ protected $table = 'deelnemers';
             
         ];
 
+        
+
          $response = $this->broker()->sendResetLink(
             $request->only('email')
         );
+
 
         return $response == Password::RESET_LINK_SENT
                     ? $this->sendResetLinkResponse($response)
@@ -71,6 +74,7 @@ protected $table = 'deelnemers';
         'token' => 'required', 'email' => 'required|email|exists:user_emails',
     ];
 }
+ 
 
 
  //protected function validator(array $data)
