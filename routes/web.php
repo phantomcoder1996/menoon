@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('pages/test');
+    return view('pages/home');
 });
 
 
@@ -42,3 +42,24 @@ Route::get('/media2/{id}','MediaController@getpic');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('contact','contactController@insertMessage');
+
+Route::get('/Events', [
+    'uses' => 'eventController@getEvents',
+    'as' => 'pages.events'
+
+]);
+Route::post('Filter','eventController@filterEvents');
+
+Route::get('/Events/View/{id}', [
+    'uses' => 'eventController@getEvent',
+    'as' => 'pages.Events.View.index'
+
+]);
+
+
+Route::get('Events/view', function () {
+    return view('pages.Events.View.index');
+});
+

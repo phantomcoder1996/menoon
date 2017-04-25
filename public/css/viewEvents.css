@@ -1,0 +1,45 @@
+body
+{
+	background-color:#fcfcfc;
+}
+.divPage{
+	background-color:white;
+	color:black;
+	margin-top:4%;
+	margin-bottom:4%;
+	margin-left:20%;
+	margin-right:20%;
+	border:2px solid lightgrey;
+
+}
+
+div.box {
+	margin-top:2%;
+	margin-left:0;
+	margin-right:0;
+    box-sizing: border-box;
+    width: 25%;
+    border-right: 4px solid #B2EBF9;
+    border-top:none;
+    border-bottom:none;
+    border-left: none;
+    float: left;
+    background-color:#2C3E50;
+    color:white;
+}
+h3,h4,p{
+	font-family:Open Sans;
+	
+}
+.container{
+	
+}
+@media screen and (max-width:768px) {
+h3{
+	font-size:100%;
+}
+h4
+{
+	font-size:80%;
+}
+}

@@ -1,10 +1,10 @@
 
 
-<div class="jumbotron w3-light-blue" style="margin-top:50px;">
+<div class="jumbotron " style="margin-top:50px; background-color:#DFF5F2">
 
-<h4 style="font-size:30px;color:#ffffff">Newsletter Subscription</h4>
+<h4 style="font-size:30px;color:#2C3E50;margin-left:1%">Newsletter Subscription</h4>
 <hr>
-<p style="text-align:center;color:#ffffff">Don't miss our events! Subscribe to our newsletter now.</p>
+<p style="text-align:center;color:#2C3E50">Don't miss our events! Subscribe to our newsletter now.</p>
 
   <div class="container-fluid">
   	<form method="post" action="/newsletter" data-parsley-validate="">

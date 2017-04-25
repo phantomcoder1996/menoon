@@ -1,66 +1,70 @@
 
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">MeNooN LLC</a>
+        </div>
 
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#" style="color:white">Home</a></li>
+                <li><a href="#About" style="color:white">About</a></li>
+                <li><a href="{{route('pages.events')}}" style="color:white">Upcoming Events</a></li>
+                <li><a href="#Media" style="color:white">Media</a></li>
+                <li><a href="#Contact" style="color:white">Contact Us</a></li>
+            </ul>
 
+            <ul class="nav navbar-nav navbar-right">
+                @if (Auth::guest())
+                    <li ><a href="#" data-toggle="modal" data-target="#loginModal" style="color:white"><span class="glyphicon glyphicon-user"></span> Log In</a></li>
+                    <li><a href="#"  data-toggle="modal" data-target="#registerModal" style="color:white;"><span class="glyphicon glyphicon-log-in"></span> Sign Up &nbsp&nbsp&nbsp</a></li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Auth::user()->username }} <span class="caret"></span>
+                        </a>
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Start Bootstrap</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                          @if (Auth::guest())
-                           <li><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-                       <li><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->username }} <span class="caret"></span>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
-                             <li>
-                                   <a data-toggle="modal" href="#fb_modal">Feedback</a>
-                             </li>
-                        @endif
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        </ul>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a data-toggle="modal" href="#fb_modal">Feedback</a>
                     </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                   
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+                @endif
+
+
+            </ul>
         </div>
-        <!-- /.container-fluid -->
-    </nav>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+
+    <div class="header-content">
+        <div class="header-content-inner">
+            <h1 id="homeHeading">MeNooN LLC</h1>
+            <hr>
+            <p>Whatever your problems are, we believe we can solve most management problems with software</p>
+            <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+        </div>
+    </div>
 
 
     <div class="modal fade" hidden="true" id="registerModal" role="dialog" tabindex="-1">
@@ -72,46 +76,46 @@
                    <div class="modal-body">
                     <form action="{{Route('register')}}" id="registerForm" method="post" name="registerForm">
                         <div class="form-group" id="register-fname">
-                            <label class="control-label" for="fname"> First Name</label> <input class="form-control" id="fname" name="fname"
+                            <label class="control-label" for="fname" style="color:grey"> First Name</label> <input class="form-control" id="fname" name="fname"
                             placeholder="choose name" required="" title="Please enter you name" type="text"> 
                         </div>
 
                         <div class="form-group" id="register-lname">
-                            <label class="control-label" for="lname"> Last Name</label> <input class="form-control" id="lname" name="lname"
+                            <label class="control-label" for="lname" style="color:grey"> Last Name</label> <input class="form-control" id="lname" name="lname"
                             placeholder="choose name" required="" title="Please enter you name" type="text"> 
                         </div>
 
                         <div class="form-group" id="register-username">
-                            <label class="control-label" for="name"> UserName</label> <input class="form-control" id="username" name="username"
+                            <label class="control-label" for="name" style="color:grey"> UserName</label> <input class="form-control" id="username" name="username"
                             placeholder="choose name" required="" title="Please enter you name" type="text"> <span class=
                             "help-block"><strong id="register-errors-username"></strong></span> <span class="help-block small">Your name</span>
                         </div>
 
                         <div class="form-group" id="register-email">
-                            {{ csrf_field() }} <label class="control-label" for="email">Email</label> <input class="form-control" id=
+                            {{ csrf_field() }} <label class="control-label" for="email" style="color:grey">Email</label> <input class="form-control" id=
                             "email" name="email" placeholder="example@gmail.com" required="" title="Please enter you email" type="email"
                             value=""> <span class="help-block"><strong id="register-errors-email"></strong></span> <span class=
                             "help-block small">Your email</span>
                         </div>
                         <div class="form-group" id="register-password">
-                            <label class="control-label" for="password">Password</label> <input class="form-control" id="password" name=
+                            <label class="control-label" for="password" style="color:grey">Password</label> <input class="form-control" id="password" name=
                             "password" placeholder="******" required="" title="Please enter your password" type="password" value="">
                             <span class="help-block"><strong id="register-errors-password"></strong></span> <span class=
                             "help-block small">Your strong password</span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="password-confirm">Confirm Password</label> <input class="form-control" id=
+                            <label class="control-label" for="password-confirm" style="color:grey">Confirm Password</label> <input class="form-control" id=
                             "password-confirm" name="password_confirmation" placeholder="******" type="password"> <span class=
                             "help-block"><strong id="form-errors-password-confirm"></strong></span>
                         </div>
 
                         <div class="form-group" id="register-address">
-                            <label class="control-label" for="name"> Address</label> <input class="form-control" id="address" name="address"
+                            <label class="control-label" for="name" style="color:grey"> Address</label> <input class="form-control" id="address" name="address"
                             placeholder="choose name" required="" title="Please enter you name" type="text"> <span class="help-block"><strong id="register-errors-address"></strong></span> <span class="help-block small"></span>
                         </div>
 
                          <div class="form-group" id ="register-membership">
-                              <label class="col-md-4 control-label">Membership</label>
+                              <label class="col-md-4 control-label" style="color:grey">Membership</label>
                                    <div class="col-md-6 selectContainer">
 
                                       <select name="membership" class="form-control" required>
@@ -127,7 +131,7 @@
                               </div>
 
                            <div class="form-group">                         
-                         <label for='pic'class="col-md-4 control-label">Profile picture</label>
+                         <label for='pic'class="col-md-4 control-label" style="color:grey">Profile picture</label>
                          <div class="col-md-6">
                        <input type="file" name="pic" class="" data-multiple-caption="{count} files selected" multiple />
                       </div>
@@ -164,7 +168,7 @@
                          <form action="{{Route('login')}}" method="POST" id="loginForm" >
                             <div class="form-group" id="username-div">
                             {{ csrf_field() }}
-                            <label class="control-label" >Username</label>
+                            <label class="control-label" style="color:grey">Username</label>
                             <input id="username" type="text" title="Please enter you username" required value="" name="username" class="form-control">
                             {{-- <div id="form-errors-username" class="has-error"></div> --}}
                             <span class="help-block">
@@ -173,7 +177,7 @@
                             <span class="help-block small">Your username</span>
                         </div>
                         <div class="form-group" id="password-div">
-                            <label class="control-label" for="password">Password</label>
+                            <label class="control-label" for="password" style="color:grey">Password</label>
                             <input type="password" title="Please enter your password" placeholder="******" required value="" name="password" id="password" class="form-control">
                             <span class="help-block">
                                 <strong id="form-errors-password"></strong>
@@ -197,8 +201,8 @@
                    
                                           <div class="form-group">
                             <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember"> Remember Me
+                                <label style="color:grey">
+                                    <input type="checkbox" name="remember" > Remember Me
                                 </label>
                             </div>
                         </div>
@@ -236,7 +240,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label" style="color:grey">E-Mail Address</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
