@@ -14,19 +14,37 @@ class mediaTableSeeder extends Seeder
         //
          $event=new \App\media();
         $event->event_id='1';
-        $event->pic='\app\avatars\large.jpg';
+        $event->pic='1.jpg';
         $event->type='img';
         $event->save();
 
           $event=new \App\media();
         $event->event_id='2';
-        $event->pic='\app\avatars\background-pics-12.jpg';
+        $event->pic='2.jpg';
         $event->type='img';
         $event->save();
 
         $event=new \App\Media();
         $event->event_id='2';
-        $event->pic='\app\avatars\4537c00b63a920f5d1a49bd37b01e789.jpg';
+        $event->pic='3.jpg';
+        $event->type='img';
+        $event->save();
+
+        $event=new \App\Media();
+        $event->event_id='3';
+        $event->pic='4.jpg';
+        $event->type='img';
+        $event->save();
+
+        $event=new \App\Media();
+        $event->event_id='3';
+        $event->pic='5.jpg';
+        $event->type='img';
+        $event->save();
+
+        $event=new \App\Media();
+        $event->event_id='4';
+        $event->pic='6.jpg';
         $event->type='img';
         $event->save();
     }

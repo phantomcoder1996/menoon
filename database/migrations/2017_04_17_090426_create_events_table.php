@@ -18,8 +18,13 @@ class CreateEventsTable extends Migration
             $table->timestamps();
             $table->string('name',30);
             $table->date('start_date');
+            $table->date('end_date');
             $table->string('country',50);
             $table->text('description');
+            $table->string('title',200);
+            $table->string('place',200);
+            $table->string('certificate',5);
+
         });
     }
 

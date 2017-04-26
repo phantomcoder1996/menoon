@@ -14,16 +14,16 @@
 <h3>{{$event->title}}</h3>
   <br>
   <h4 style="display:inline;color:#B2EBF9">Upcoming session: {{$event->start_date}} — {{$event->end_date}}.</h4>
- <hr align="left" width="65%" style="height:1px;">
+      <hr align="center" width="65%" style="border-color:lightgray; width:90%">
  
  
  <h4 style="display:inline;">Place </h4>
  <h4 style="display:inline; margin-left:13%">{{$event->place}},{{$event->country}}. </h4>
- <hr align="left" width="65%" style="height:1px;">
+ <hr align="center" width="65%" style="border-color:lightgray; width:90%">
  
  <h4 style="display:inline;">Certification </h4>
  <h4 style="display:inline; margin-left:8%">{{$event->certificate}}</h4>
- <hr align="left" width="65%" style="height:1px;">
+      <hr align="center" width="65%" style="border-color:lightgray; width:90%">
  
 <h4 >About The Event</h4>
 <br>
@@ -33,8 +33,8 @@
  </div>
 
   <!-- Trigger the modal with a button -->
-  <a type="button" href="#myModal" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="background-color:#2C3E50;color:white;margin-left:4%;display:inline;font-family:Open Sans">Enroll</a>
- <a type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2" style="background-color:#2C3E50;color:white;margin-left:2%;display:inline;font-family:Open Sans">Take Quiz</a>
+  <a type="button" href="#myModal" class="w3-btn" data-toggle="modal" data-target="#myModal" style="background-color:#2C3E50;color:white;margin-left:4%;display:inline;font-family:Open Sans;overflow: hidden; text-decoration: none;">Enroll</a>
+ <a type="button" class="w3-btn" data-toggle="modal" data-target="#myModal2" style="background-color:#2C3E50;color:white;margin-left:2%;display:inline;font-family:Open Sans;overflow: hidden; text-decoration: none;">Take Quiz</a>
 <br><br><br>
 
 
@@ -119,21 +119,60 @@
             <!-- Collection of nav links and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#" style="color:white">Home</a></li>
-                    <li><a href="#" style="color:white">About</a></li>
-                    <li><a href="#" style="color:white">Upcoming Events</a></li>
-                    <li><a href="#" style="color:white">Media</a></li>
-                    <li><a href="#" style="color:white">Contact Us</a></li>
+                    <li><a href="{{route("pages.home")}}" style="color:white">Home</a></li>
+                    <li><a href="{{route("home.about")}}" style="color:white">About</a></li>
+                    <li><a href="{{route("pages.events")}}" style="color:white">Upcoming Events</a></li>
+                    <li><a href="{{route("home.media")}}" style="color:white">Media</a></li>
+                    <li><a href="{{route("home.contact")}}" style="color:white">Contact Us</a></li>
+
+
 
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="#" style="color:white"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#" style="color:white;"><span class="glyphicon glyphicon-log-in"></span> Login &nbsp&nbsp&nbsp</a></li>
+                    @if (Auth::guest())
+                        <li ><a href="#" data-toggle="modal" data-target="#loginModal" style="color:white"><span class="glyphicon glyphicon-user"></span> Log In</a></li>
+                        <li><a href="#"  data-toggle="modal" data-target="#registerModal" style="color:white;"><span class="glyphicon glyphicon-log-in"></span> Sign Up &nbsp&nbsp&nbsp</a></li>
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->username }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li >
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a data-toggle="modal" href="#fb_modal">Feedback</a>
+                        </li>
+                    @endif
+
 
                 </ul>
             </div>
         </div>
         <!-- /.container -->
     </nav>
+
+    @include("pages.register")
+
+
+    @include("pages.login")
+
+
+    @include("pages.feedback")
+
+    @include("pages.forget")
+
 @endsection

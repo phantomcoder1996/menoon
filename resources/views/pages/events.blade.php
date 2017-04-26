@@ -18,7 +18,6 @@
 
 
     <!-- Bootstrap Core JavaScript -->
-    {!! Html::script("vendor/bootstrap/js/bootstrap.min.js")!!}
 
 
 
@@ -53,7 +52,7 @@
                             <img src="https://alison.com/images/courses/336" >
                         </div>
                         <div class="holder-bottom">
-                            <a href="{{route('pages.Events.View.index',[$event->id])}}">
+                            <a style="overflow: hidden; text-decoration: none;color:black" href="{{route('pages.Events.View.index',[$event->id])}}">
                                 <h4> {{$event->name}}</h4>
                                 <p>{{$event->title}} ....</p>
                                 <br>
