@@ -12,18 +12,18 @@ var xmlhttp;
         if(this.readyState==4 && this.status==200)
         { 
                   var arr=JSON.parse(this.responseText);
-
-                 // console.log(arr.result.length);
-                  // console.log(arr);
-                  
-                  var count=arr.length;
+                   
+                
+                   console.log(arr);                  
+                  //var count=arr.length;
+                 var count= Object.keys(arr).length;
+                  console.log(Object.keys(arr).length);
                   if(count!=0)
                   {
-                    for(var i=0;i<count;i++)
-                    {
-                      if(arr[i].type=='img')
+                    $.each(arr, function(key, obj) 
+                    { if(obj.type=="img")
                     {// listelement.setAttribute('id', arr[i].events_id);
-                  var listelement=document.createElement("LI");
+                  var listelement=document.createElement("li");
                      listelement.className += "hex";
                       var div=document.createElement("div");
                       div.className += "hexIn";
@@ -33,14 +33,15 @@ var xmlhttp;
                       
                       var parag=document.createElement("p");
                       
-                       var e="/storage/"+arr[i].pic.replace("\\","");
+                       var e="/storage/"+obj.pic.replace("\\","");
                      image.src=e;
-
-                      heading.innerHTML=arr[i].name; //content of  heading
-                      parag.innerHTML=arr[i].country;
+                       // console.log(i);
+                      
+                      heading.innerHTML=obj.name; //content of  heading
+                      parag.innerHTML=obj.country;
                       var anchor=document.createElement("a");
                       anchor.className += "hexLink";
-                       anchor.setAttribute('id', arr[i].event_id);
+                       anchor.setAttribute('id', obj.event_id);
                     //  anchor.setAttribute('href',"#");
                       anchor.appendChild(image);
                   anchor.addEventListener("click",displaycarousel);
@@ -54,7 +55,8 @@ var xmlhttp;
                         
  // };
                     }
-                    else {var listelement=document.createElement("LI");
+                    else
+                     {var listelement=document.createElement("li");
                      // listelement.setAttribute('id', arr[i].id);
                      listelement.className += "hex";
                       var div=document.createElement("div");
@@ -75,18 +77,18 @@ var xmlhttp;
                     //  parag.innerHTML=arr[i].Name;
                       var anchor=document.createElement("a");
                       anchor.className += "hexLink";
-                      anchor.setAttribute('id', arr[i].event_id);
+                      anchor.setAttribute('id', obj.event_id);
                       anchor.setAttribute('href',"#");
                        divv.appendChild(image);
                       anchor.appendChild(divv);
-                  
+                       // console.log(i);
                       anchor.appendChild(heading);
                       anchor.appendChild(parag);
                       div.appendChild(anchor);
                       listelement.appendChild(div);
                       var ule=document.getElementById("hexGrid");
                       ule.appendChild(listelement);}
-                    }
+                    });
                   }
                   else { var parag=document.createElement("p");parag.innerHTML="no";
                 var ule=document.getElementById("hexGrid");
@@ -143,12 +145,12 @@ function displaycarousel()
                   var arr=JSON.parse(this.responseText);
 
                  // console.log(arr.result.length);
-                  // console.log(arr);
+                   console.log(arr);
 
                   var indicator_cont=document.getElementById("car_ind");
 var inds="";
-var carin="";         if(arr.length>0)
-                 { for(var i=0;i<arr.length;i++)
+var carin="";         if(Object.keys(arr).length>0)
+                 { for(var i=0;i<Object.keys(arr).length;i++)
                   {
                      carin+= "<div class='item";  
                      inds+= " <li data-target='#myCarousel' data-slide-to= '"+i;

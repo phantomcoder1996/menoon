@@ -39,7 +39,7 @@ class MediaController extends Controller
     	$art = DB::table('media')
               ->join('events', 'events.id', '=', 'media.event_id')
                ->get();
-               $e=$art->unique('event_id');
+               $e=$art->unique('id');
     	 $e->values()->all();
 
     //  $f = $event->medias()

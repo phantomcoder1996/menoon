@@ -76,7 +76,7 @@
 
 @include("pages.forget")
 
-
+{!! Html::script( "vendor/jquery/jquery.min.js")!!}
 
 <script>
     $(document).ready(function(){
