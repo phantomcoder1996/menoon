@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading"  style="color:#2C3E50">We've got what you need!</h2>
-                    <hr class="light" style="color:#2C3E50;">
+                    <hr align="center"  style="color:#2C3E50;max-width:50px;margin-left:44%">
                     <p class="text-faded" style="color:#2C3E50">MeNooN LLC specializes in software development and advanced computer science training
                         courses. Our training services are located throughout the Middle East and North Africa. We
                         encourage young people to take competitive programming courses to boost creativity and to
@@ -56,4 +56,10 @@
     @endsection
 @section("feedback")
     @include('pages.feedback')
+    @endsection
+@section("morefeedback")
+    @include('pages.more_fb')
+    @endsection
+@section("messages")
+    @include("pages.messages")
     @endsection

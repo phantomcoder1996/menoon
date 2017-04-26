@@ -19,7 +19,7 @@ var cardcontainer=document.createElement("div");
 //div1.innerHTML=feedback_arr[j].content;
 cardcontainer.className="feedback_card";
 
-cardheader=document.createElement("header");
+cardheader=document.createElement("div");
 cardheader.className=" w3-light-blue";
 cardheader.className+=" feedback_header";
 cardheader.innerHTML=feedback_arr[j].username;
@@ -130,13 +130,13 @@ var slideindex=1;
 function createbuttons()
 {
 var right=document.createElement("button");
-right.className="w3-button w3-display-right";
+right.className="w3-button right_fb_slider";
 right.addEventListener("click",slideright);
 right.innerHTML="&#10095";
 
 //right.onclick=slide(1);
 var left=document.createElement("button");
-left.className="w3-button w3-display-left";
+left.className="w3-button left_fb_slider";
 left.innerHTML="&#10094";
 left.addEventListener("click",slideleft);
 //left.onclick=alert("hi");

@@ -1,4 +1,4 @@
-<div class="modal fade" id="fb_success_modal" role="dialog">
+<div class="modal fade" id="fb_success_modal2" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -16,14 +16,7 @@
     </div>
   </div>
 
+</div>
 
-
-
- @if(Session::has('success'))
- <script>
-
-// alert(you success);
-$("#fb_success_modal").modal("show");</script>
-@endif
 
 

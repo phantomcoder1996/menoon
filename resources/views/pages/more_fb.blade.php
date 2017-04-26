@@ -1,4 +1,4 @@
-<div class="modal fade" id="more_fb_modal" role="dialog">
+<div class="modal fade" id="more_fb_modal" role="dialog" >
     <div class="modal-dialog">
     
       <!-- Modal content-->

@@ -54,16 +54,16 @@ class FeedbackController extends Controller
 
 
 
-    public function store(store_fb $request)
+    public function store(Request $request)
     {
-       // $this->validate($request,array('content'=>'required|max:5000'));
+        $this->validate($request,array('content'=>'required|max:5000'));
 
 
         //store valid items in database
         $feedback=new Feedback;
   
 
-        $feedback->content=$request->content;
+        $feedback->content=$request->get('content');
        // dd($request->user_id);
         $feedback->user_id=$request->user_id;
 

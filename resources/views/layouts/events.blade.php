@@ -3,10 +3,12 @@
 <head>
 @include("includes.EventHead")
 </head>
-
+<header>
+    @include("includes.eventHeader")
+</header>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-@yield("eventContent")
+
 @yield("courses")
 @yield('eventScripts')
 </body>

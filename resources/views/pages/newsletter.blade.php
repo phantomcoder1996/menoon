@@ -3,7 +3,7 @@
 <div class="jumbotron " style="margin-top:50px; background-color:#DFF5F2">
 
 <h4 style="font-size:30px;color:#2C3E50;margin-left:1%">Newsletter Subscription</h4>
-<hr>
+<hr  width="100%">
 <p style="text-align:center;color:#2C3E50">Don't miss our events! Subscribe to our newsletter now.</p>
 
   <div class="container-fluid">

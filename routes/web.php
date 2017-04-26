@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('pages/home');
-});
-
+    //
+    return view('pages.home');
+})->name('pages.home');
 
 //Route::get('/', function(){return view("pages/test");});
 //Route::get('/', function(){return view("event");});
@@ -62,4 +62,20 @@ Route::get('/Events/View/{id}', [
 Route::get('Events/view', function () {
     return view('pages.Events.View.index');
 });
+
+
+Route::get('/#About', function () {
+    //
+    return view('pages.home/#About');
+})->name('home.about');
+
+Route::get('/#Contact', function () {
+    //
+    return view('pages.home/#Contact');
+})->name('home.contact');
+
+Route::get('/#Media', function () {
+    //
+    return view('pages.home/#Media');
+})->name('home.media');
 

@@ -22,7 +22,7 @@ margin-bottom: 20px;
 @keyframes cardmove {
     0%   {top: 0px;}
     25%  {top: 10px;}
-    75%  {top: 5px}
+    75%  {top: 5px;}
     100% {top: 0px;}
 }
 
@@ -47,12 +47,12 @@ margin-bottom: 20px;
 .mybtn:focus,
 .mybtn.focus {
   color: #fff;
-  background-color: #0ca6a7
+  background-color: #0ca6a7;
   border-color: #0c819a;
 }
 .mybtn:hover {
   color: #fff;
-  background-color: #0ca6a7
+  background-color: #0ca6a7;
   border-color: #0c819a;
 }
 
@@ -101,4 +101,16 @@ margin:auto;
   position:relative;
   bottom:0;
   height:35px;
+}
+
+
+.right_fb_slider {
+  float: right !important;
+  display:inline-block;
+  bottom: 30%;
+}
+.left_fb_slider {
+  float: left !important;
+  display:inline-block;
+  bottom: 30%;
 }

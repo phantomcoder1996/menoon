@@ -14,7 +14,11 @@
 <div id="About">@yield("about")</div>
 <div id="newsletter">@yield("subscribe")</div>
 <div id="Media">@yield("media")<br></div>
-<div id="feedback">@yield("feedback")</div>
+
+<div >@yield("morefeedback")<br></div>
+ @yield("messages")
+<div id="feedback" class="w3-container" style="margin-top:10%;text-align:center">
+    </div>
 
 <div id="Contact">@yield("contact")</div>
 
@@ -45,5 +49,14 @@
 
 {!!Html::script('js/home.js') !!}
 {!!Html::script('js/parsley.min.js') !!}
+
+
+<script>
+    @if(Session::has('success'))
+$("#fb_success_modal2").modal("show");
+    @endif
+</script>
+
+
 </body>
 </html>
