@@ -161,7 +161,7 @@ var carin="";         if(arr.length>0)
                     }
                     else
                     {
-                      inds+="''></li>";
+                      inds+="'></li>";
                       carin+="'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
