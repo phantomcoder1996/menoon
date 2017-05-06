@@ -29,7 +29,7 @@ Route::resource('feedback','FeedbackController');
 Route::post('/newsletter','newsletter_controller@storemail');
 
 
-//::get('/', function(){return view("pages/test");});
+//::get('/', function(){return view("pages/test");});a
 Route::get('/media','MediaController@getmedia');
 
   // Route::get('/{id}', [
@@ -79,3 +79,8 @@ Route::get('/#Media', function () {
     return view('pages.home/#Media');
 })->name('home.media');
 
+
+Route::get('/Profile', function () {
+    //
+    return view('pages.updateInfo');
+})->name('home.Profile');
