@@ -118,7 +118,7 @@
                         <div class="form-group">
                             <h3> Request Certificate</h3><hr>
                             <label for="crt">Choose Event:</label>
-                            <select t class="form-control" id="cre" style="width:60%">
+                            <select  class="form-control" id="cre" style="width:60%">
                                 <option>event1</option>
                                 <option>event2</option>
                                 <option>event3</option>>
