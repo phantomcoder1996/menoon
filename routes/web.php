@@ -25,7 +25,8 @@ Route::get('/bs', function () {
 });
 
 Route::resource('feedback','FeedbackController');
-
+Route::resource('fingerprints','addFingerprints');
+Route::resource('iqtest','iqTest');
 Route::post('/newsletter','newsletter_controller@storemail');
 
 
@@ -79,3 +80,12 @@ Route::get('/#Media', function () {
     return view('pages.home/#Media');
 })->name('home.media');
 
+
+Route::group(["middleware"=>"auth"],function()
+{
+  Route::get('/fullAccess',function(){
+    return view('pages/Admin/fullAccessAdmin');
+  });
+});
+
+Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
