@@ -84,3 +84,9 @@ Route::get('/Profile', function () {
     //
     return view('pages.updateInfo');
 })->name('home.Profile');
+
+Route::get('/CreateEvent', function () {
+    //
+    return view('pages.eventAdmin');
+});
+Route::post('createEvent','createEventController@createEvent');
