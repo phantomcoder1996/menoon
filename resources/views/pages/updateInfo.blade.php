@@ -45,6 +45,11 @@
                                     <i class="glyphicon glyphicon-ok"></i>
                                     Email </a>
                             </li>
+<li>
+                                <a href="#"  onclick="eventForm();">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                    Certificates </a>
+                            </li>
 
                         </ul>
                     </div>
@@ -109,6 +114,20 @@
                         <button type="submit"  class="btn" style="background-color:#2C3E50;color:white;">&nbsp&nbsp&nbsp&nbspSave&nbsp&nbsp&nbsp&nbsp&nbsp</button>
 
                     </form>
+                    <form method="POST" style="display:none"  id="eventForm">
+                        <div class="form-group">
+                            <h3> Request Certificate</h3><hr>
+                            <label for="crt">Choose Event:</label>
+                            <select t class="form-control" id="cre" style="width:60%">
+                                <option>event1</option>
+                                <option>event2</option>
+                                <option>event3</option>>
+                            </select>
+                        </div>
+                        <br>
+                        <button type="submit"  class="btn" style="background-color:#2C3E50;color:white;">&nbsp&nbsp&nbsp&nbspRequest&nbsp&nbsp&nbsp&nbsp&nbsp</button>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -123,6 +142,7 @@
         function profileForm() {
             $("#mailForm").hide();
             $("#accountForm").hide();
+            $("#eventForm").hide();
             $("#profileForm").show();
 
         }
@@ -130,12 +150,20 @@
 
             $("#profileForm").hide();
             $("#accountForm").hide();
+            $("#eventForm").hide();
             $("#mailForm").show();
         }
         function accountForm() {
             $("#mailForm").hide();
+            $("#eventForm").hide();
             $("#profileForm").hide();
             $("#accountForm").show();
+        }
+        function eventForm() {
+            $("#mailForm").hide();
+            $("#profileForm").hide();
+            $("#accountForm").hide();
+            $("#eventForm").show();
         }
     </script>
 @endsection
