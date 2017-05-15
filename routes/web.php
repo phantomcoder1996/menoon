@@ -25,11 +25,12 @@ Route::get('/bs', function () {
 });
 
 Route::resource('feedback','FeedbackController');
-
+Route::resource('fingerprints','addFingerprints');
+Route::resource('iqtest','iqTest');
 Route::post('/newsletter','newsletter_controller@storemail');
 
 
-//::get('/', function(){return view("pages/test");});
+//::get('/', function(){return view("pages/test");});a
 Route::get('/media','MediaController@getmedia');
 
   // Route::get('/{id}', [
@@ -92,4 +93,27 @@ Route::get('/#Media', function () {
     //
     return view('pages.home/#Media');
 })->name('home.media');
+
+
+
+Route::group(["middleware"=>"auth"],function()
+{
+  Route::get('/fullAccess',function(){
+    return view('pages/Admin/fullAccessAdmin');
+  });
+});
+
+Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
+
+
+Route::get('/Profile', function () {
+    //
+    return view('pages.updateInfo');
+})->name('home.Profile');
+
+Route::get('/CreateEvent', function () {
+    //
+    return view('pages.eventAdmin');
+});
+Route::post('createEvent','createEventController@createEvent');
 
