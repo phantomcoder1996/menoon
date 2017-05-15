@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'emails',
         ],
+
+        'web_admins' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -70,10 +75,10 @@ return [
             'model' => App\User::class,
         ],
 
-         'emails' => [
-            'driver' => 'eloquent',
-            'model' => App\user_emails::class,
-         ],
+           'admins' => [
+            'driver' => 'eloquent',  //We are using eloquent model
+            'model' => App\admins::class,
+        ],
     ],
 
     /*
