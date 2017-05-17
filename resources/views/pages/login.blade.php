@@ -39,7 +39,7 @@
 
                             <div class="form-group">
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="/forget-password">
                                     Forgot Your Password?
                                 </a>
 
