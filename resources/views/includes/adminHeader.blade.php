@@ -9,3 +9,20 @@
    {!! Html::style( "assets/css/font-awesome.css")!!}
    {!! Html::style( "assets/css/custom.css")!!}
       {!! Html::style( "css/menoon.css")!!}
+
+      {!!Html::style('css/bootstrap.css')!!}
+      {!!Html::style('css/w3.css')!!}
+
+
+
+
+      {!! Html::script("vendor/jquery/jquery.js")!!}
+      {!! Html::script("vendor/bootstrap/js/bootstrap.js")!!}
+
+      {!! Html::script("vendor/bootstrap/js/bootstrap.min.js")!!}
+
+
+
+      <!-- Plugin JavaScript -->
+      {!! Html::script("vendor/scrollreveal/scrollreveal.min.js")!!}
+      {!! Html::script("vendor/magnific-popup/jquery.magnific-popup.min.js")!!}

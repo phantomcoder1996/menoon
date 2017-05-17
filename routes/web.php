@@ -58,6 +58,7 @@ Route::get('/Events/View/{id}', [
     'as' => 'pages.Events.View.index'
 
 ]);
+Route::get('/deleteUser/{id}',['uses'=>'deleteUser@deleteUser']);
 
 
 Route::get('Events/view', function () {
@@ -103,3 +104,10 @@ Route::get('/CreateEvent', function () {
 });
 Route::post('createEvent','createEventController@createEvent');
 
+Route::resource('approvalAdmin','approval_admin_controller');
+
+Route::post('/createAdmin',['uses'=>'createAdmin@store']);
+
+Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
+
+Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});

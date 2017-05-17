@@ -15,7 +15,7 @@ class AddUserIdToFbtable extends Migration
     {
         Schema::table('feedback', function (Blueprint $table) {
             //
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->change();
          $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }

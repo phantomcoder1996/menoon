@@ -18,7 +18,7 @@ class CreateUserFingerPrintsTable extends Migration
             $table->timestamps();
            
             $table->binary('fingerprint');
-                        $table->primary('user_id');
+            $table->primary('user_id');
             //$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
         });

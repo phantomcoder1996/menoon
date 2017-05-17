@@ -69,4 +69,9 @@
 
 
     </div>
+
+    @include("pages.messages")
+
 @endsection
+
+
