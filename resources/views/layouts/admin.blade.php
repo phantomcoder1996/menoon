@@ -5,9 +5,8 @@
     @include("includes.profileHeader")
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-<br><br>
-
-@yield ("createEvent")
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" style="background-color:white">
+<br><br><br><br>
+@yield("viewEvents")
 </body>
 </html>

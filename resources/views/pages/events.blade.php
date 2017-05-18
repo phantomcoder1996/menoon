@@ -40,7 +40,7 @@
         <div class="w3-container">
             <div>
                 <hr align="center" width="25%" style="margin-left:37%;margin-top:65px;height:1px;border:none;color:#333;background-color:#000;">
-                <h2 style="text-align:center;font-family:Amiko">Recent Events</h2>
+                <h2 style="text-align:center;font-family:Amiko">Recent Events</h2>F
                 <hr align="center" width="25%" style="margin-left:37%;height:1px;border:none;color:#333;background-color:#333;">
             </div>
 

@@ -90,3 +90,8 @@ Route::get('/CreateEvent', function () {
     return view('pages.eventAdmin');
 });
 Route::post('createEvent','createEventController@createEvent');
+Route::get('/Admin', [
+    'uses' => 'adminController@viewEvents',
+    'as' => 'pages.viewEvents'
+
+]);
