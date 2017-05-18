@@ -44,11 +44,12 @@ Route::get('admins_login', 'adminAuth\LoginController@showLoginForm');
 Route::post('admins_login', 'adminAuth\LoginController@login');
 
 
-Route::group(['middleware' => 'admin_auth'], function(){
+Route::group(['middleware' => 'admin_auth'], function() {
 
-Route::post('admin_logout', 'adminAuth\LoginController@logout');
-Route::get('/admin_home', function(){
-  return view('admin.home');
+    Route::post('admin_logout', 'adminAuth\LoginController@logout');
+    Route::get('/admin_home', function () {
+        return view('admin.home');
+    });
 });
 
 
