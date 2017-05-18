@@ -25,7 +25,8 @@ Route::get('/bs', function () {
 });
 
 Route::resource('feedback','FeedbackController');
-
+Route::resource('fingerprints','addFingerprints');
+Route::resource('iqtest','iqTest');
 Route::post('/newsletter','newsletter_controller@storemail');
 
 
@@ -38,7 +39,22 @@ Route::get('/media','MediaController@getmedia');
   //   ]);
 
 Route::get('/media2/{id}','MediaController@getpic');
+Route::post('admins_logout', 'adminAuth\LoginController@logout');
+Route::get('admins_login', 'adminAuth\LoginController@showLoginForm');
+Route::post('admins_login', 'adminAuth\LoginController@login');
 
+
+Route::group(['middleware' => 'admin_auth'], function() {
+
+    Route::post('admin_logout', 'adminAuth\LoginController@logout');
+    Route::get('/admin_home', function () {
+        return view('admin.home');
+    });
+});
+
+
+Route::get('/forget-password','ForgetPasswordController@forgotpassword');
+Route::post('/forget-password','ForgetPasswordController@postForgotPassword');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -57,6 +73,7 @@ Route::get('/Events/View/{id}', [
     'as' => 'pages.Events.View.index'
 
 ]);
+Route::get('/deleteUser/{id}',['uses'=>'deleteUser@deleteUser']);
 
 
 Route::get('Events/view', function () {
@@ -80,6 +97,17 @@ Route::get('/#Media', function () {
 })->name('home.media');
 
 
+
+Route::group(["middleware"=>"auth"],function()
+{
+  Route::get('/fullAccess',function(){
+    return view('pages/Admin/fullAccessAdmin');
+  });
+});
+
+Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
+
+
 Route::get('/Profile', function () {
     //
     return view('pages.updateInfo');
@@ -90,8 +118,19 @@ Route::get('/CreateEvent', function () {
     return view('pages.eventAdmin');
 });
 Route::post('createEvent','createEventController@createEvent');
+<<<<<<< HEAD
 Route::get('/Admin', [
     'uses' => 'adminController@viewEvents',
     'as' => 'pages.viewEvents'
 
 ]);
+=======
+
+Route::resource('approvalAdmin','approval_admin_controller');
+
+Route::post('/createAdmin',['uses'=>'createAdmin@store']);
+
+Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
+
+Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+>>>>>>> 26d0255e97ebe9bea8ac0a4cbf7db2214d54ce3d

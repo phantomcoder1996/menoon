@@ -34,7 +34,7 @@
 
   <!-- Trigger the modal with a button -->
   <a type="button" href="#myModal" class="w3-btn" data-toggle="modal" data-target="#myModal" style="background-color:#2C3E50;color:white;margin-left:4%;display:inline;font-family:Open Sans;overflow: hidden; text-decoration: none;">Enroll</a>
- <a type="button" class="w3-btn" data-toggle="modal" data-target="#myModal2" style="background-color:#2C3E50;color:white;margin-left:2%;display:inline;font-family:Open Sans;overflow: hidden; text-decoration: none;">Take Quiz</a>
+ <a type="button" class="w3-btn" href="/iqtest/{{$event->id}}" style="background-color:#2C3E50;color:white;margin-left:2%;display:inline;font-family:Open Sans;overflow: hidden; text-decoration: none;">Take Quiz</a>
 <br><br><br>
 
 
@@ -175,4 +175,13 @@
 
     @include("pages.forget")
 
+
+
+    @include("pages.messages")
+
+    @if(Session::has('score'))
+
+        <script>$("#fb_success_modal2").modal("show");</script>
+    @endif
 @endsection
+

@@ -11,5 +11,9 @@
 
 @yield("courses")
 @yield('eventScripts')
+
+
+
+
 </body>
 </html>

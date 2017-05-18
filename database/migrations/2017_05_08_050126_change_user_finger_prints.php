@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddUserIdToFbtable extends Migration
+class ChangeUserFingerPrints extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class AddUserIdToFbtable extends Migration
      */
     public function up()
     {
-        Schema::table('feedback', function (Blueprint $table) {
+        Schema::table('user_finger_prints', function (Blueprint $table) {
             //
-            $table->integer('user_id')->unsigned()->change();
-         $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->primary(['user_id','fingerprints'])->change();
+             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -27,10 +28,10 @@ class AddUserIdToFbtable extends Migration
      */
     public function down()
     {
-        Schema::table('feedback', function (Blueprint $table) {
+        Schema::table('user_finger_prints', function (Blueprint $table) {
             //
+
             $table->dropForeign(['user_id']);
-            $table->dropColumn('user_id');
         });
     }
 }
