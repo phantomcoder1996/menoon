@@ -119,6 +119,7 @@ Route::get('/CreateEvent', function () {
 });
 Route::post('createEvent','createEventController@createEvent');
 
+
 Route::get('/Admin','adminController@viewEvents')->name("pages.viewEvents");
 
 Route::resource('approvalAdmin','approval_admin_controller');
@@ -128,5 +129,6 @@ Route::post('/createAdmin',['uses'=>'createAdmin@store']);
 Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
 
 Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+
 
 Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
