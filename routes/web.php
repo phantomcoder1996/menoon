@@ -118,13 +118,8 @@ Route::get('/CreateEvent', function () {
     return view('pages.eventAdmin');
 });
 Route::post('createEvent','createEventController@createEvent');
-<<<<<<< HEAD
-Route::get('/Admin', [
-    'uses' => 'adminController@viewEvents',
-    'as' => 'pages.viewEvents'
 
-]);
-=======
+Route::get('/Admin','adminController@viewEvents')->name("pages.viewEvents");
 
 Route::resource('approvalAdmin','approval_admin_controller');
 
@@ -133,4 +128,5 @@ Route::post('/createAdmin',['uses'=>'createAdmin@store']);
 Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
 
 Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
->>>>>>> 26d0255e97ebe9bea8ac0a4cbf7db2214d54ce3d
+
+Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
