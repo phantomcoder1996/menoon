@@ -9,7 +9,7 @@ class createAdmin extends Controller
     //
     public function store(Request $request)
     {
-        echo $request;
+       
         //dd();
         $rules=['email'=>'required|email|unique:admins,email','password'=>'required|min:6|confirmed','countrycode'=>'numeric',
             'phonenumber'=>'required|numeric','role'=>'required',
