@@ -24,15 +24,6 @@ class adminController extends Controller
         $id=DB::table('events')->select('id')->where('name','=',$request->eventName)->get();
         $users[]=0;
         $userName[]=0;
-        /*$users= DB::table('user_event_applications')->select('user_event_applications.user_id',
-            'user_event_applications.application_date',
-            'user_event_applications.event_id',
-            'user_event_applications.iq_test_score',
-            'user_event_applications.money_paid',
-            'User.username')
-            ->join('User','User.id','=','user_event_applications.user_id')->where(['user_event_applications.event_id' => $id[0]->id])->get();
-*/
-       // echo ($id[0]->id);
         $users=user_event_applications::where("event_id","=",$id[0]->id)->get();
 
 
