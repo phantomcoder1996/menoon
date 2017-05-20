@@ -13,7 +13,7 @@
                 <div class="panel-body">
                     
                    
-                    <form class="form-horizontal" role="form" method="POST" action="/forget-password">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

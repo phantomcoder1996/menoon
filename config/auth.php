@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'emails',
+        'passwords' => 'users',
     ],
 
     /*
@@ -97,11 +97,19 @@ return [
     */
 
     'passwords' => [
-        'emails' => [
-            'provider' => 'emails',
+        'users' => [
+            'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],
+         'admins' => [
+            //user provider for seller
+           'provider' => 'admins',
+            //table to store password reset tokens for seller
+           'table' => 'password_resets',
+           //expire time for these tokens in minutes
+           'expire' => 60,
+       ],
     ],
 
 ];

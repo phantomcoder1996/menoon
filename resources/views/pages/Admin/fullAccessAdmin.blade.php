@@ -88,8 +88,8 @@
                             <div class="row text-center pad-top">
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.html" >
- <i class="fa fa-fingerprint fa-5x"></i>
+                           <a href="/addFingerPrint" >
+ <i class="fa fa-lightbulb-o fa-5x"></i>
                       <h4>Fingerprints</h4>
                       </a>
                       </div>
@@ -99,9 +99,9 @@
                  
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.html" >
+                           <a href="/createAdminView" >
  <i class="fa fa-envelope-o fa-5x"></i>
-                      <h4>Mail Box</h4>
+                      <h4>Create Admin</h4>
                       </a>
                       </div>
                      
@@ -109,9 +109,9 @@
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
-                           <a href="blank.html" >
+                           <a href="/approvalAdmin" >
  <i class="fa fa-lightbulb-o fa-5x"></i>
-                      <h4>New Issues</h4>
+                      <h4>Approve admins</h4>
                       </a>
                       </div>
                      

@@ -22,7 +22,9 @@ class CreateAdminsTable extends Migration
             $table->string('role',50);
             $table->date('activation_date')->nullable();
             $table->date('expiration_date')->nullable();
+            $table->rememberToken();
             $table->boolean('activated')->default(true);
+            $table->string('email',320);
 
         });
     }

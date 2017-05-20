@@ -22,8 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('membership',50);
             $table->string('password');
             $table->string('pic');
+            $table->string('email',320)->unique();
             $table->rememberToken();
             $table->timestamps();
+            $table->string('confirmation_code')->nullable();
+            $table->boolean('confirmed')->default(0);
         });
 
         //  Schema::table('users', function (Blueprint $table) {

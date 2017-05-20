@@ -61,15 +61,16 @@ var xmlhttp;
                      listelement.className += "hex";
                       var div=document.createElement("div");
                       div.className += "hexIn";
-                      var image=document.createElement("iframe");
+                      var image=document.createElement("video");
                       
                       var heading=document.createElement("h1");
                       
                       var parag=document.createElement("p");
                       var divv=document.createElement("div");
-                      image.style["width"] = "auto";
-                      image.style["height"] = "auto";
-                      image.src=arr[i].pic.replace("\\","");
+                      //align="right"
+                      $(divv).attr('align', 'right');
+                      var e="/storage/"+obj.pic.replace("\\","");
+                      image.src=e;
                      
                       
 
@@ -79,6 +80,9 @@ var xmlhttp;
                       anchor.className += "hexLink";
                       anchor.setAttribute('id', obj.event_id);
                       anchor.setAttribute('href',"#");
+                      anchor.addEventListener("click",displaycarousel);
+                       heading.innerHTML=obj.name; //content of  heading
+                      parag.innerHTML=obj.country;
                        divv.appendChild(image);
                       anchor.appendChild(divv);
                        // console.log(i);
@@ -137,12 +141,19 @@ function displaycarousel()
 
  // var xhttp1=new XMLHttpRequest();
 
-   
+    
+                     
      xmlhttp.onreadystatechange=function()
      {
         if(this.readyState==4 && this.status==200)
         { 
                   var arr=JSON.parse(this.responseText);
+
+                    
+                   //         <div class="carousel-caption">
+          //<h3>New York</h3>
+          //<p>We love the Big Apple!</p>
+        //</div>
 
                  // console.log(arr.result.length);
                    console.log(arr);
@@ -151,22 +162,77 @@ function displaycarousel()
 var inds="";
 var carin="";         if(Object.keys(arr).length>0)
                  { for(var i=0;i<Object.keys(arr).length;i++)
-                  {
+                  {    var ule=document.getElementById("hello1");
+                       ule.innerHTML=arr[i].name+" Event in "+arr[i].country;
+
+                      // var deis=document.getElementById("des");
+                       //deis.innerHTML=arr[i].description;
                      carin+= "<div class='item";  
                      inds+= " <li data-target='#myCarousel' data-slide-to= '"+i;
                     if(i==0)
                     {
-                      inds+="' class='active'></li>";
+
+                      if(arr[i].type=='img')
+                   {  inds+="' class='active'></li>";
                       carin+=" active'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
                     }
+                    else 
+                    {// <video    >
+          //<source src="movie.mp4" type="video/mp4">
+         
+                            
+          //</video>
+                      inds+="' class='active'></li>";
+                      carin+=" active'> <video  controls><source src='";
+                      carin+='/storage/'+arr[i].pic;
+                      carin+="'></video></div>";
+                    }
+
+
+                       // var h=document.getElementById("attatch");
+                       // var button=document.createElement("button");
+                       // button.setAttribute('id',arr[i].id);
+                       // button.className+="btn btn-default";
+                      //  button.addEventListener("click",displaycarousel);
+                      
+                       // var span=document.createElement("span");
+                       // span.className+="glyphicon glyphicon-tag";
+                       // $(span).attr("aria-hidden","true");
+                       // button.appendChild(span);
+                       //  h.appendChild(button);
+                       // alert(arr[i].id);
+                        //alert('k');
+                    }
+
                     else
-                    {
-                      inds+="'></li>";
+                    {if(arr[i].type=='img')
+                     { inds+="'></li>";
                       carin+="'><img src='";
                       carin+='/storage/'+arr[i].pic;
                       carin+="'></div>";
+                    }
+                    else 
+                    {
+                      inds+="'></li>";
+                      carin+="'><<video controls>< source src='";
+                      carin+='/storage/'+arr[i].pic;
+                      carin+="'></video></div>";
+                    }
+
+                     //  var h=document.getElementById("attatch");
+                     //   var button=document.createElement("button");
+                     //   button.setAttribute('id',arr[i].id);
+                     // //  alert(arr[i].id);
+                     //   button.className+="btn btn-default";
+                     //  //  button.addEventListener("click",displaycarousel);
+                      
+                     //   var span=document.createElement("span");
+                     //   span.className+="glyphicon glyphicon-tag";
+                     //   $(span).attr("aria-hidden","true");
+                     //   button.appendChild(span);
+                     //    h.appendChild(button);
                     }
 
 
@@ -178,7 +244,7 @@ var carin="";         if(Object.keys(arr).length>0)
                         console.log(arr.length);
 
 
-                
+
 
 
 

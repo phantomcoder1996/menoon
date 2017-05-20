@@ -12,7 +12,10 @@ use Illuminate\Session\Store;
 use \Crypt;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
-
+use App\tagtable;
+use App\User;
+use App\Http\Requests\store_fb;
+use Session;
 class MediaController extends Controller
 {
     //
@@ -60,11 +63,84 @@ public function getpic($id)
 {
      // $sd = DB::table('media')->where('id', '=', $id);
       //$sd=Media::where('id', '=', $id);
-	$sd=DB::table('media')->where("event_id",$id)->get();
+	$sd=DB::table('media') ->join('events', 'events.id', '=', 'media.event_id')
+  ->select('events.name as name','events.country as country','events.description as description','events.title as title','events.place as place','media.id as id','media.pic as pic','media.type as type')->where("media.event_id",$id)->get();
 // dd($sd);
       //dd($sd);
     // return view('event', ['sd' => $sd])->render();
      // return view('event',['sd' => $sd])->with(array('sd' =>$sd));
       return response()->json($sd);
 }
+
+
+
+public function getgallery()
+{
+
+
+
+$Events=events::all();
+ 
+  return view('pages.gallery',['events' => $Events,'flag'=>0]);
+}
+
+public function galleryview($id)
+{ $sd=DB::table('media') ->join('events', 'events.id', '=', 'media.event_id')
+  ->select('events.name as name','events.country as country','events.description as description','events.title as title','events.place as place','media.id as id','media.pic as pic','media.type as type')->where("media.event_id",$id)->get();
+  return view('pages.galleryview',['events' => $sd,'flag'=>0]);
+}
+
+
+public function gettagged($id)
+{  //alert(1);
+  if (!Auth::guest())
+  {$user = Auth::user();
+  $u = DB::table('users')->where('username', Auth::user()->username)->first();
+ 
+  $tag = DB::table('tagtables')->where('user_id', '=', $u->id)->where('media_id',$id)->get();
+
+  if(count($tag)==0)
+  { //dd(1);
+    DB::table('tagtables')->insert(
+    ['user_id' => $u->id, 'media_id' => $id]
+);
+    Session::flash('status','you have been queued , please wait for approval thanks');
+    return redirect()->back()->with(['status'=>'you have been queued , please wait for approval thanks']);
+  }
+  Session::flash('status','Sorry it seems you have already tagged yourself please wait for approval thanks');
+  return redirect()->back()->with(['status'=>'Sorry it seems you have already tagged yourself please wait for approval thanks']);
+}
+  else 
+    Session::flash('status','please login first');
+  return redirect()->back()->with(['status'=>'please login first']);
+}
+
+public function getmymedia()
+{
+ 
+
+
+  $user = Auth::user();
+$u = DB::table('users')->where('username', Auth::user()->username)->first();
+ $y = DB::table('events')
+            ->join('media', 'media.event_id', '=', 'events.id')
+            ->join('tagtables', 'tagtables.media_id', '=', 'media.id')
+            ->select('events.name as name', 'events.country as country', 'media.pic as pic','tagtables.id as id','media.id as media_id','media.type as type')->where('tagtables.approved',1)->where('tagtables.user_id',$u->id)->get();
+
+
+
+
+
+
+  
+  $tags=DB::table('tagtables')->where('user_id',$u->id)->join('media', 'media.id', '=', 'tagtables.media_id')->select('media.pic as pic','tagtables.id as id','media.id as media_id','media.type as type')->where('tagtables.approved',0)->get();
+  if(count($y)==0)
+  {
+    Session::flash('status','NO images for you to display');
+    
+  }
+  return view('pages.mymedia',['events' => $y,'flag'=>0]);
+
+}
+
 }
