@@ -44,7 +44,7 @@ class approval_admin_controller extends Controller
 
         if($request->has('birth_certificate_no'))
         {
-            echo $request->get('birth_certificate_no');
+            //echo $request->get('birth_certificate_no');
             DB::table('user_birth_certificates')->where('user_id',$request->get('id'))->update(['approved'=>1]);
 
         }
