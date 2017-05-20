@@ -29,7 +29,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'MultiAuth') }}</title>
+    <title>{{ config('app.name', 'Admins Login') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -57,7 +57,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Menoon') }}
                     </a>
                 </div>
 
@@ -74,8 +74,8 @@
 
                             <!--Seller Login and registration Links -->
 
-                            <li><a href="{{ url('/seller_login') }}">Admin Login</a></li>
-                            <li><a href="{{ url('/seller_register') }}">Admin Registration</a></li>
+                            <li><a href="{{ url('/admins_login') }}">Admin Login</a></li>
+                            
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

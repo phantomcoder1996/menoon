@@ -141,6 +141,12 @@ Route::get('/tagdisapp1/{id}',[
 
 ]);
 Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
+Route::post('/createAdmin',['uses'=>'createAdmin@store']);
+Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+Route::resource('approvalAdmin','approval_admin_controller');
+Route::get('/fullAccess',function(){
+    return view('pages/Admin/fullAccessAdmin');
+  });
 
 });
 
@@ -193,9 +199,7 @@ Route::get('/#Media', function () {
 
 Route::group(["middleware"=>"auth"],function()
 {
-  Route::get('/fullAccess',function(){
-    return view('pages/Admin/fullAccessAdmin');
-  });
+  
 });
 
 
@@ -239,13 +243,13 @@ Route::get('/mymedia',[
 
 Route::get('/Admin','adminController@viewEvents')->name("pages.viewEvents");
 
-Route::resource('approvalAdmin','approval_admin_controller');
 
-Route::post('/createAdmin',['uses'=>'createAdmin@store']);
+
+
 
 Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
 
-Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+
 
 
 Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
