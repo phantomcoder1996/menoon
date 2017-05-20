@@ -28,7 +28,7 @@
                     <li ><a href="#" data-toggle="modal" data-target="#loginModal" style="color:white"><span class="glyphicon glyphicon-user"></span> Log In</a></li>
                     <li><a href="#"  data-toggle="modal" data-target="#registerModal" style="color:white;"><span class="glyphicon glyphicon-log-in"></span> Sign Up &nbsp&nbsp&nbsp</a></li>
                 @else
-                    <li class="dropdown">
+                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->username }} <span class="caret"></span>
                         </a>
@@ -50,6 +50,7 @@
                     <li>
                         <a data-toggle="modal" href="#fb_modal">Feedback</a>
                     </li>
+                   
                 @endif
 
 
