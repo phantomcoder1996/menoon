@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddEmailToAdminsTable' => $baseDir . '/database/migrations/2017_05_18_223428_add_email_to_admins_table.php',
     'AddFkToAdminEmails' => $baseDir . '/database/migrations/2017_04_18_170832_add_fk_to_admin_emails.php',
     'AddFkToAdminEvents' => $baseDir . '/database/migrations/2017_04_18_170955_add_fk_to_admin_events.php',
     'AddFkToAdminPhonenumbers' => $baseDir . '/database/migrations/2017_04_18_170914_add_fk_to_admin_phonenumbers.php',
@@ -28,11 +29,15 @@ return array(
     'AddForeignKeyToUserBirthCertificates' => $baseDir . '/database/migrations/2017_04_18_162741_add_foreign_key_to_user_birth_certificates.php',
     'AddForeignKeyToUserPassportInfo' => $baseDir . '/database/migrations/2017_04_18_160615_add_foreign_key_to_user_passport_info.php',
     'AddMailingListFlag' => $baseDir . '/database/migrations/2017_04_18_225516_add_mailing_list_flag.php',
-
-
+    'AddMinIqTestScore' => $baseDir . '/database/migrations/2017_05_15_163939_add_min_iq_test_score.php',
     'AddUserIdToFbtable' => $baseDir . '/database/migrations/2017_04_23_091450_add_user_id_to_fbtable.php',
-
-
+    'AddVerifiedColumnToUsrs' => $baseDir . '/database/migrations/2017_05_15_190505_add_verified_column_to_usrs.php',
+    'ChangeBlobOfUserBirthCertificates' => $baseDir . '/database/migrations/2017_05_15_191504_change_blob_of_user_birth_certificates.php',
+    'ChangeBlobOfUserNationalIds' => $baseDir . '/database/migrations/2017_05_15_191359_change_blob_of_user_national_ids.php',
+    'ChangeBlobOfUserPassportInfo' => $baseDir . '/database/migrations/2017_05_15_191303_change_blob_of_user_passport_info.php',
+    'ChangeImageFromBlobToUrl' => $baseDir . '/database/migrations/2017_05_07_173929_change_image_from_blob_to_url.php',
+    'ChangeMoneyPaidToNullable' => $baseDir . '/database/migrations/2017_05_15_165443_change_money_paid_to_nullable.php',
+    'ChangeUserFingerPrints' => $baseDir . '/database/migrations/2017_05_08_050126_change_user_finger_prints.php',
     'CreateAdminEmailsTable' => $baseDir . '/database/migrations/2017_04_17_091032_create_admin_emails_table.php',
     'CreateAdminPhonenumbersTable' => $baseDir . '/database/migrations/2017_04_17_091057_create_admin_phonenumbers_table.php',
     'CreateAdminsTable' => $baseDir . '/database/migrations/2017_04_17_091006_create_admins_table.php',
@@ -137,6 +142,7 @@ return array(
     'Hamcrest\\Xml\\HasXPath' => $vendorDir . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
     'ModifyRevField' => $baseDir . '/database/migrations/2017_04_18_180449_modify_rev_field.php',
     'ModifyUserConstraints' => $baseDir . '/database/migrations/2017_04_19_180631_modify_user_constraints.php',
+    'ModifyUserFingerPrintsPk' => $baseDir . '/database/migrations/2017_05_07_220419_modify_user_finger_prints_pk.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
     'PHPUnit\\Framework\\BaseTestListener' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
     'PHPUnit\\Framework\\TestCase' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
@@ -596,6 +602,7 @@ return array(
     'SebastianBergmann\\ResourceOperations\\ResourceOperations' => $vendorDir . '/sebastian/resource-operations/src/ResourceOperations.php',
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'UpdateIqTestDb' => $baseDir . '/database/migrations/2017_05_08_044324_update_iq_test_db.php',
     'eventsTableSeeder' => $baseDir . '/database/seeds/eventsTableSeeder.php',
     'mediaTableSeeder' => $baseDir . '/database/seeds/mediaTableSeeder.php',
 );

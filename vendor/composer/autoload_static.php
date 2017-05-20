@@ -305,6 +305,7 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
     );
 
     public static $classMap = array (
+        'AddEmailToAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_18_223428_add_email_to_admins_table.php',
         'AddFkToAdminEmails' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_170832_add_fk_to_admin_emails.php',
         'AddFkToAdminEvents' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_170955_add_fk_to_admin_events.php',
         'AddFkToAdminPhonenumbers' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_170914_add_fk_to_admin_phonenumbers.php',
@@ -327,11 +328,15 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         'AddForeignKeyToUserBirthCertificates' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_162741_add_foreign_key_to_user_birth_certificates.php',
         'AddForeignKeyToUserPassportInfo' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_160615_add_foreign_key_to_user_passport_info.php',
         'AddMailingListFlag' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_225516_add_mailing_list_flag.php',
-
-
+        'AddMinIqTestScore' => __DIR__ . '/../..' . '/database/migrations/2017_05_15_163939_add_min_iq_test_score.php',
         'AddUserIdToFbtable' => __DIR__ . '/../..' . '/database/migrations/2017_04_23_091450_add_user_id_to_fbtable.php',
-
-
+        'AddVerifiedColumnToUsrs' => __DIR__ . '/../..' . '/database/migrations/2017_05_15_190505_add_verified_column_to_usrs.php',
+        'ChangeBlobOfUserBirthCertificates' => __DIR__ . '/../..' . '/database/migrations/2017_05_15_191504_change_blob_of_user_birth_certificates.php',
+        'ChangeBlobOfUserNationalIds' => __DIR__ . '/../..' . '/database/migrations/2017_05_15_191359_change_blob_of_user_national_ids.php',
+        'ChangeBlobOfUserPassportInfo' => __DIR__ . '/../..' . '/database/migrations/2017_05_15_191303_change_blob_of_user_passport_info.php',
+        'ChangeImageFromBlobToUrl' => __DIR__ . '/../..' . '/database/migrations/2017_05_07_173929_change_image_from_blob_to_url.php',
+        'ChangeMoneyPaidToNullable' => __DIR__ . '/../..' . '/database/migrations/2017_05_15_165443_change_money_paid_to_nullable.php',
+        'ChangeUserFingerPrints' => __DIR__ . '/../..' . '/database/migrations/2017_05_08_050126_change_user_finger_prints.php',
         'CreateAdminEmailsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091032_create_admin_emails_table.php',
         'CreateAdminPhonenumbersTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091057_create_admin_phonenumbers_table.php',
         'CreateAdminsTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_17_091006_create_admins_table.php',
@@ -436,6 +441,7 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
         'ModifyRevField' => __DIR__ . '/../..' . '/database/migrations/2017_04_18_180449_modify_rev_field.php',
         'ModifyUserConstraints' => __DIR__ . '/../..' . '/database/migrations/2017_04_19_180631_modify_user_constraints.php',
+        'ModifyUserFingerPrintsPk' => __DIR__ . '/../..' . '/database/migrations/2017_05_07_220419_modify_user_finger_prints_pk.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
@@ -895,6 +901,7 @@ class ComposerStaticInitb8fc163bdd3af559f19bd9ddff7c3362
         'SebastianBergmann\\ResourceOperations\\ResourceOperations' => __DIR__ . '/..' . '/sebastian/resource-operations/src/ResourceOperations.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'UpdateIqTestDb' => __DIR__ . '/../..' . '/database/migrations/2017_05_08_044324_update_iq_test_db.php',
         'eventsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/eventsTableSeeder.php',
         'mediaTableSeeder' => __DIR__ . '/../..' . '/database/seeds/mediaTableSeeder.php',
     );
