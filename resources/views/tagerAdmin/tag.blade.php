@@ -54,7 +54,7 @@
 
 
 @if (session('status'))
-  <div class="modal fade" id="myModal1112" role="dialog">
+  <div class="modal fade" id="myModal11122" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -77,41 +77,40 @@
 </div>
        <script type="text/javascript">
     
-        $('#myModal1112').modal('show');
+        $('#myModal11122').modal('show');
    
 </script>                
     @endif
 
 
-@foreach ($tags as $pic => $tags)
+@foreach ($image as $tags)
 <div class="w3-container">
   <h2></h2>
 
   <div class="w3-card-4 w3-dark-grey" style="width:50%">
 
-    <div class="w3-container w3-center">
-      @if(pathinfo($pic, PATHINFO_EXTENSION) == 'jpeg'||
-      pathinfo($pic, PATHINFO_EXTENSION) == 'png'||pathinfo($pic, PATHINFO_EXTENSION) =='bmp'||
-      pathinfo($pic, PATHINFO_EXTENSION) =='svg+xml'||pathinfo($pic, PATHINFO_EXTENSION) =='jpg')
-      <img src="/storage/{{$pic}}" alt="Avatar" style="width:80%">
-      <h5>Event</h5>
+    <div class="w3-container w3-center" id="{{$tags->id}}">
+    @if($tags->type === 'img')
+       <h5>Event picture </h5>
+      <img src="/storage/{{$tags->pic}}" alt="Avatar" style="width:80%">
       @else 
         <h5>Event video </h5>
        <video class="img-thumbnail" controls>
-          <source src="/storage/{{$pic}}" >
+          <source src="/storage/{{$tags->pic}}" >
                     
           </video>   
       @endif
-      <div class="w3-section">
-      @foreach($tags as $tag)
-      
-       
-       <button type="button" class="btn btn-default btn-sm" id ="{{$tag->id}}">
-          <span class="glyphicon glyphicon-minus" id ="{{$tag->id}}" onclick="removetag()"></span> {{$tag->fname}} {{$tag->lname}}
+      @foreach($utags as $tag)
+      <div class="w3-container w3-half">
+        <img src="/storage/{{$tag->avatar}}" alt="Avatar" style="width:80%">
+       <button type="button" class="btn btn-default btn-sm" id ="{{$tag->user_id}}" onclick="removeadd()">
+          <span class="glyphicon glyphicon-plus" id ="{{$tag->user_id}}" onclick="removeadd()"></span> {{$tag->fname}} {{$tag->lname}}
         </button>
+        </div>
+      
       
       @endforeach
-      </div>
+      
     </div>
 
   </div>
@@ -120,17 +119,20 @@
 
   <script >
 
-   function removetag() {
+   function removeadd() {
 var e = window.event,
        btn = e.target || e.srcElement;
-   //alert(btn.id);
+   alert(btn.id);
         // var id=this.id;
-        var x=/tagr1/+btn.id;
-        console.log(x);
-  var xhttp = new XMLHttpRequest();     
-xhttp.open("GET", x, true);
-xhttp.send();
-location.reload();
+        var x='#'+btn.id
+        var id = $(x).closest("div").prop("id");
+        console.log(id);
+       var x=/tagr11/+btn.id+'/'+id;
+      console.log(x);
+   var xhttp = new XMLHttpRequest();     
+ xhttp.open("GET", x, true);
+ xhttp.send();
+ location.reload();
 }
 </script>
 

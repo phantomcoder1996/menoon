@@ -17,7 +17,7 @@ class LoginControllr extends Controller
      use AuthenticatesUsers;
     
 
-     protected $redirectTo = '/';
+     protected $redirectTo = '/home1';
 
       protected function guard()
     {
