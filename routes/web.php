@@ -64,6 +64,8 @@ Route::get('admins_password/reset', 'adminAuth\ForgotPasswordController@showLink
 Route::post('admins_password/email', 'adminAuth\ForgotPasswordController@sendResetLinkEmail');
 Route::get('admins_password/reset/{token}', 'adminAuth\ResetPasswordController@showResetForm');
 Route::post('admins_password/reset', 'adminAuth\ResetPasswordController@reset');
+
+
 });
 //auth
 Route::group(['middleware' => 'auth'], function() {
@@ -148,6 +150,12 @@ Route::get('/fullAccess',function(){
     return view('pages/Admin/fullAccessAdmin');
   });
 
+    Route::get('/CreateEvent', function () {
+        //
+        return view('pages.eventAdmin');
+    });
+    Route::get('/acceptInterviewees',['uses'=>'accept_or_reject_interviewees@index']);
+
 });
 
 
@@ -199,13 +207,14 @@ Route::get('/#Media', function () {
 
 
 
-  Route::get('/fullAccess',function(){
-    return view('pages/Admin/fullAccessAdmin');
-  });
+//  Route::get('/fullAccess',function(){
+//    return view('pages/Admin/fullAccessAdmin');
+//  });
 
 
 
-
+Route::get('/acceptUser/{userid}/{eventid}',['uses'=>'accept_or_reject_interviewees@accept']);
+Route::post('/rejectUser',['uses'=>'accept_or_reject_interviewees@reject']);
 
 
 Route::get('/Profile','profileController@events')->name("home.Profile");
@@ -213,10 +222,7 @@ Route::get('/Profile','profileController@events')->name("home.Profile");
 
 
 
-Route::get('/CreateEvent', function () {
-    //
-    return view('pages.eventAdmin');
-});
+
 Route::post('createEvent','createEventController@createEvent');
 
 
