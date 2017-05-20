@@ -1,6 +1,7 @@
 @extends('layouts.adminLayout')
 
 @section('content')
+    @include('adminNav')
     <div class="page-header iqTestHeader">Users</div>
     <div class="w3-container">
         <ul class="w3-ul w3-border">
