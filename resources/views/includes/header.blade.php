@@ -16,6 +16,10 @@
                 <li><a href="#About" style="color:white">About</a></li>
                 <li><a href="{{route('pages.events')}}" style="color:white">Upcoming Events</a></li>
                 <li><a href="#Media" style="color:white">Media</a></li>
+                <li><a href="{{route('pages.gallery')}}" style="color:white">Gallery</a></li>
+                @if (!Auth::guest())
+                <li><a href="{{route('pages.mygalleryview')}}" style="color:white">My Media</a></li>
+                @endif
                 <li><a href="#Contact" style="color:white">Contact Us</a></li>
             </ul>
 

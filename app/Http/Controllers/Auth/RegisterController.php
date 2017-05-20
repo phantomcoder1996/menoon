@@ -15,6 +15,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Mail;
 
 class RegisterController extends Controller
 {
@@ -59,13 +60,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'fname' => 'required|max:255',
             'username' => 'required|max:255|unique:users',
-            'email' => 'required|email|max:255|unique:user_emails,email',
+            'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
             'lname'=>'required|max:255',
             'address'=>'required|max:500',
             'membership'=>'required',
             
         ]);
+        // 'email' => 'required|email|max:255|unique:user_emails,email',
     }
 
     /**
@@ -76,31 +78,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-          $fileName = 'null';
-          if(Input::hasFile('pic'))
-         // Input::file('pic')->store('avatars');
-  {  if (Input::file('pic')->isValid()) {
-        $destinationPath = public_path('uploads/files');
-        $extension = Input::file('pic')->getClientOriginalExtension();
-        $fileName = uniqid().'.'.$extension;
+            $fileName = 'null';
+            //dd(Input::file('pic'));
+           if(Input::hasFile('pic'))           
+          {
+           if (Input::file('pic')->isValid()) {
+                $destinationPath = public_path('uploads/files');
+                $extension = Input::file('pic')->getClientOriginalExtension();
+                $fileName = uniqid().'.'.$extension;
 
-        Input::file('pic')->move($destinationPath, $fileName);        
-      
-   
-     }
- }
-          
+                Input::file('pic')->move($destinationPath, $fileName);        
+                 
+             }
+         }
+          $confirmation_code = str_random(30);
 
         $user= User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'address' => $data['address'],
-            'username' => $data['username'],         
-            'membership' => $data['membership'],
-            'pic'=>$fileName,
+            'username' => $data['username'],                   
+            'membership' => $data['membership'],    
             'password' => bcrypt($data['password']),
+             'pic'=>$fileName,
+             'email'=>$data['email'], 
+             'confirmation_code' => $confirmation_code,
         ]);
         $user->save();
+        
+         //Flash::message('Thanks for signing up! Please check your email.');
       // $user->userEmail()->save(new userEmail(['email'=>$data['email']]));
         //    $flight = new user_emails;
 
@@ -125,9 +131,37 @@ class RegisterController extends Controller
         DB::table('guest_newsletters')->where('email',$em)->delete();
         user_emails::where('email',$em)->update(['mailinglist_flag'=>true]);
     }
+    $data = ['confirmation_code' => $confirmation_code];
+     Mail::send('email.verify', $data, function($message) {
+                $message->to(Input::get('email'), Input::get('username'))
+                    ->subject('Verify your email address');
+            });
 
 
+       return $user;
+    }
 
-        return $user;
+
+     public function confirm($confirmation_code)
+    {
+        if( ! $confirmation_code)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user = User::where('confirmation_code',$confirmation_code)->first();
+
+        if ( ! $user)
+        { dd($confirmation_code);
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user->confirmed = 1;
+        $user->confirmation_code = null;
+        $user->save();
+
+        //Flash::message('You have successfully verified your account.');
+
+       return redirect('/');
     }
 }

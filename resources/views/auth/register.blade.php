@@ -124,7 +124,7 @@
                          
                          <label for='pic'class="col-md-4 control-label">Profile picture</label>
                          <div class="col-md-6">
-                       <input type="file" name="pic" class="" data-multiple-caption="{count} files selected" multiple />
+                      <input type="file" name="pic" class="" data-multiple-caption="{count} files selected" multiple />
                       </div>
                        </div>
                         <div class="form-group">
