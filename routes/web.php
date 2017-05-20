@@ -67,11 +67,15 @@ Route::post('admins_password/reset', 'adminAuth\ResetPasswordController@reset');
 });
 
 
-Route::group(['middleware' => 'admin_auth'], function(){
+Route::group(['middleware' => 'admin_auth'], function() {
+
 
 Route::post('admins_logout', 'adminAuth\LoginControllr@logout');
 Route::get('/admins_home', function(){
   return view('admin.home');
+
+   
+
 });
 });
 
@@ -96,6 +100,7 @@ Route::get('/Events/View/{id}', [
     'as' => 'pages.Events.View.index'
 
 ]);
+Route::get('/deleteUser/{id}',['uses'=>'deleteUser@deleteUser']);
 
 
 Route::get('Events/view', function () {
@@ -142,6 +147,7 @@ Route::get('/CreateEvent', function () {
     return view('pages.eventAdmin');
 });
 Route::post('createEvent','createEventController@createEvent');
+
 
 
 
@@ -221,3 +227,17 @@ Route::get('/mymedia',[
     'as' => 'pages.mygalleryview'
 
 ]);
+
+Route::get('/Admin','adminController@viewEvents')->name("pages.viewEvents");
+
+Route::resource('approvalAdmin','approval_admin_controller');
+
+Route::post('/createAdmin',['uses'=>'createAdmin@store']);
+
+Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
+
+Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+
+
+Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
+
