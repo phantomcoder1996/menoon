@@ -26,7 +26,7 @@ class LoginControllr extends Controller
 
 
     public function showLoginForm()
-   { //dd( Hash::make('123'));
+   { //dd( Hash::make('123456'));
        return view('admin.auth.login');
    }
 
@@ -45,7 +45,7 @@ public function authenticated(Request $request , $user)
         }
          else if($user->role ==='event_interviewer')
         {
-           //return redirect()->intended('/tags');
+           return redirect()->intended('/acceptInterviewees');
         }
            else if($user->role ==='approval')
         {
@@ -65,7 +65,7 @@ public function authenticated(Request $request , $user)
         }
            else if($user->role ==='all')
         {
-           //return redirect()->intended('/tags');
+           return redirect()->intended('/fullAccess');
         }
         return redirect()->intended('/');
     }
