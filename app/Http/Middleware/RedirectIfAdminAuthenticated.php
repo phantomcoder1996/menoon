@@ -21,13 +21,13 @@ class RedirectIfAdminAuthenticated
         //If request comes from logged in user, he will
       //be redirect to home page.
       if (Auth::guard()->check()) {
-          return redirect('/home');
+          return redirect('/');
       }
 
       //If request comes from logged in seller, he will
       //be redirected to seller's home page.
       if (Auth::guard('web_admins')->check()) {
-          return redirect('/home');
+          return redirect('/');
       }
         return $next($request);
     }

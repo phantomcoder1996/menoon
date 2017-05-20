@@ -141,6 +141,12 @@ Route::get('/tagdisapp1/{id}',[
 
 ]);
 Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
+Route::post('/createAdmin',['uses'=>'createAdmin@store']);
+Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+Route::resource('approvalAdmin','approval_admin_controller');
+Route::get('/fullAccess',function(){
+    return view('pages/Admin/fullAccessAdmin');
+  });
 
 });
 
@@ -192,6 +198,7 @@ Route::get('/#Media', function () {
 
 
 
+
   Route::get('/fullAccess',function(){
     return view('pages/Admin/fullAccessAdmin');
   });
@@ -200,6 +207,8 @@ Route::get('/#Media', function () {
 
 
 
+
+Route::get('/Profile','profileController@events')->name("home.Profile");
 
 
 
@@ -238,20 +247,30 @@ Route::get('/mymedia',[
 
 Route::get('/Admin','adminController@viewEvents')->name("pages.viewEvents");
 
-Route::resource('approvalAdmin','approval_admin_controller');
 
-Route::post('/createAdmin',['uses'=>'createAdmin@store']);
+
+
 
 Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
 
-Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+
 
 
 Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
 
+Route::get('addmoney/stripe', array('as' => 'pages.paywithstripe','uses' => 'AddMoneyController@payWithStripe',))->name('pages.paywithstripe');
+Route::post('addmoney/stripe', array('as' => 'pages.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
+Route::post('updateProfile','profileController@profile')->name("pages.updateInfo");
+Route::post('updateAccount','profileController@account')->name("pages.updateAccount");
+Route::post('Update_Account','profileController@account2')->name("pages.Update_Account");
+Route::post('updateEmail','profileController@email')->name("pages.updateEmail");
+Route::post('requestCertificate','profileController@certificate')->name("pages.certificate");
+Route::post('updatePic','profileController@profilePic')->name("pages.updatePic");
+
 
   Route::get('/Profile', function () {
-    //
+
     return view('pages.updateInfo');
 })->name('home.Profile');
+
 
