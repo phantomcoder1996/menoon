@@ -49,9 +49,9 @@ Route::get('register/verify/{confirmationCode}', [
 
 Route::get('/media2/{id}','MediaController@getpic');
 
-Route::post('admins_logout', 'adminAuth\LoginControllr@logout');
-Route::get('admins_login', 'adminAuth\LoginControllr@showLoginForm');
-Route::post('admins_login', 'adminAuth\LoginControllr@login');
+// Route::post('admins_logout', 'adminAuth\LoginControllr@logout');
+// Route::get('admins_login', 'adminAuth\LoginControllr@showLoginForm');
+// Route::post('admins_login', 'adminAuth\LoginControllr@login');
 
 
 Route::group(['middleware' => 'admin_guest'], function() {
@@ -66,25 +66,12 @@ Route::get('admins_password/reset/{token}', 'adminAuth\ResetPasswordController@s
 Route::post('admins_password/reset', 'adminAuth\ResetPasswordController@reset');
 });
 //auth
-Route::group(['middleware' => 'auth'], function() {
-
-  
-    });
-
-
-
-
-
 
 Route::group(['middleware' => 'admin_auth'], function() {
 
 
 Route::post('admins_logout', 'adminAuth\LoginControllr@logout');
-Route::get('/admins_home', function(){
-  return view('admin.home');
-
-   
-
+Route::get('/admins_home', function(){ return view('admin.home');   
 });
 Route::get('/mediauploader','PhotoUploadController@getview');
 Route::get('/mediauploader/{id}',[
@@ -140,6 +127,25 @@ Route::get('/tagdisapp1/{id}',[
     'as' => 'tagAdmin.disapp'
 
 ]);
+
+//taguserviewevent
+Route::get('/taguser',[
+    'uses' => 'ApproveTagsController@getevent',
+    'as' => 'taguserviewevent'
+
+]);
+
+Route::get('/taguser/{id}',[
+    'uses' => 'ApproveTagsController@geteventpic',
+    'as' => 'taguservieweventpic'
+
+]);
+
+Route::get('/tagr11/{id}/{id2}',[
+    'uses' => 'ApproveTagsController@taguser',
+    'as' => 'taguservieweventpic11'
+
+]);
 Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
 Route::post('/createAdmin',['uses'=>'createAdmin@store']);
 Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
@@ -149,9 +155,11 @@ Route::get('/fullAccess',function(){
   });
 
 });
+//////////////////////////////////////////////
 
 
 
+/////////////////////////////////////////////
 Route::get('/forget-password','ForgetPasswordController@forgotpassword');
 Route::post('/forget-password','ForgetPasswordController@postForgotPassword');
 Auth::routes();

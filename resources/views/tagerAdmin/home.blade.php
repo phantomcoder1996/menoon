@@ -9,7 +9,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">MeNooN LLC</a>
+            <a class="navbar-brand page-scroll" href="{{route('tagAdmin.view')}}">MeNooN LLC</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,7 +76,17 @@
 
 
       </button> </div>
- 
+
+       <div style="border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;">Tag Users in events 
+     <button type="button" class="btn btn-default " >
+      <span class="glyphicon glyphicon-tag" aria-hidden="true" onclick="window.location='{{ route("taguserviewevent") }}'" ></span>       
+
+
+      </button> </div> 
 
 
 @endsection

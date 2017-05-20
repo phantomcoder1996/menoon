@@ -9,7 +9,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">MeNooN LLC</a>
+            <a class="navbar-brand page-scroll" href="{{route('tagAdmin.view')}}">MeNooN LLC</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -90,9 +90,18 @@
   <div class="w3-card-4 w3-dark-grey" style="width:50%">
 
     <div class="w3-container w3-center">
-      
+      @if(pathinfo($pic, PATHINFO_EXTENSION) == 'jpeg'||
+      pathinfo($pic, PATHINFO_EXTENSION) == 'png'||pathinfo($pic, PATHINFO_EXTENSION) =='bmp'||
+      pathinfo($pic, PATHINFO_EXTENSION) =='svg+xml'||pathinfo($pic, PATHINFO_EXTENSION) =='jpg')
       <img src="/storage/{{$pic}}" alt="Avatar" style="width:80%">
       <h5>Event</h5>
+      @else 
+        <h5>Event video </h5>
+       <video class="img-thumbnail" controls>
+          <source src="/storage/{{$pic}}" >
+                    
+          </video>   
+      @endif
       <div class="w3-section">
       @foreach($tags as $tag)
       

@@ -2,7 +2,6 @@
 
 
 @section('content')
-
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top" style="background-color: #021637;">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -10,7 +9,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="{{route('/mediauploader')}}">MeNooN LLC</a>
+            <a class="navbar-brand page-scroll" href="{{route('tagAdmin.view')}}">MeNooN LLC</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -52,45 +51,89 @@
 </nav>
 <br>
 <br>
- 
- <div class="container" >
-         
 
-        <div class="w3-container">
-            <div>
-                <hr align="center" width="25%" style="margin-left:37%;margin-top:65px;height:1px;border:none;color:#333;background-color:#000;">
-                <h2 style="text-align:center;font-family:Amiko">Recent Events</h2>
-                <h2 style="text-align:center;font-family:Amiko">Please choose an Event to upload its own Photos and videos</h2>
-                <hr align="center" width="25%" style="margin-left:37%;height:1px;border:none;color:#333;background-color:#333;">
-            </div>
 
-            <ul>
-                @foreach($events as $event)
-                <li class="course">
-                    <div class="course-holder">
-                        <div class="holder-top">
-                            <img src="https://alison.com/images/courses/336" >
-                        </div>
-                        <div class="holder-bottom">
-                            <a style="overflow: hidden; text-decoration: none;color:black" href="{{route('mediaAdmin.insert',[$event->id])}}">
-                                <h4> {{$event->name}}</h4>
-
-                                <p>{{$event->title}} ....</p>
-                                <h4> {{$event->country}}</h4>
-                                <br>
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="section-shadow"></div>
-                </li>
-               @endforeach
-            </ul>
-
+@if (session('status'))
+  <div class="modal fade" id="myModal11122" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
         </div>
+        <div class="modal-body">
+          <p>{{ session('status') }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+       <script type="text/javascript">
+    
+        $('#myModal11122').modal('show');
+   
+</script>                
+    @endif
 
 
+@foreach ($image as $tags)
+<div class="w3-container">
+  <h2></h2>
+
+  <div class="w3-card-4 w3-dark-grey" style="width:50%">
+
+    <div class="w3-container w3-center" id="{{$tags->id}}">
+    @if($tags->type === 'img')
+       <h5>Event picture </h5>
+      <img src="/storage/{{$tags->pic}}" alt="Avatar" style="width:80%">
+      @else 
+        <h5>Event video </h5>
+       <video class="img-thumbnail" controls>
+          <source src="/storage/{{$tags->pic}}" >
+                    
+          </video>   
+      @endif
+      @foreach($utags as $tag)
+      <div class="w3-container w3-half">
+        <img src="/storage/{{$tag->avatar}}" alt="Avatar" style="width:80%">
+       <button type="button" class="btn btn-default btn-sm" id ="{{$tag->user_id}}" onclick="removeadd()">
+          <span class="glyphicon glyphicon-plus" id ="{{$tag->user_id}}" onclick="removeadd()"></span> {{$tag->fname}} {{$tag->lname}}
+        </button>
+        </div>
+      
+      
+      @endforeach
+      
     </div>
 
+  </div>
+</div>
+  @endforeach
+
+  <script >
+
+   function removeadd() {
+var e = window.event,
+       btn = e.target || e.srcElement;
+   alert(btn.id);
+        // var id=this.id;
+        var x='#'+btn.id
+        var id = $(x).closest("div").prop("id");
+        console.log(id);
+       var x=/tagr11/+btn.id+'/'+id;
+      console.log(x);
+   var xhttp = new XMLHttpRequest();     
+ xhttp.open("GET", x, true);
+ xhttp.send();
+ location.reload();
+}
+</script>
 
 @endsection
