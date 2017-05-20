@@ -31,7 +31,12 @@ return array(
     'AddMailingListFlag' => $baseDir . '/database/migrations/2017_04_18_225516_add_mailing_list_flag.php',
     'AddMinIqTestScore' => $baseDir . '/database/migrations/2017_05_15_163939_add_min_iq_test_score.php',
     'AddUserIdToFbtable' => $baseDir . '/database/migrations/2017_04_23_091450_add_user_id_to_fbtable.php',
+
     'AddVerifiedColumnToUsrs' => $baseDir . '/database/migrations/2017_05_15_190505_add_verified_column_to_usrs.php',
+    'ChangeMoneyPaidToNullable' => $baseDir . '/database/migrations/2017_05_15_165443_change_money_paid_to_nullable.php',
+
+
+
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Feedback' => $baseDir . '/app/Feedback.php',
@@ -171,6 +176,7 @@ return array(
     'Collective\\Html\\HtmlBuilder' => $vendorDir . '/laravelcollective/html/src/HtmlBuilder.php',
     'Collective\\Html\\HtmlFacade' => $vendorDir . '/laravelcollective/html/src/HtmlFacade.php',
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
+
     'CreateAdminEmailsTable' => $baseDir . '/database/migrations/2017_04_17_091032_create_admin_emails_table.php',
     'CreateAdminPhonenumbersTable' => $baseDir . '/database/migrations/2017_04_17_091057_create_admin_phonenumbers_table.php',
     'CreateAdminsTable' => $baseDir . '/database/migrations/2017_04_17_091006_create_admins_table.php',
@@ -1939,6 +1945,8 @@ return array(
     'Mockery\\VerificationExpectation' => $vendorDir . '/mockery/mockery/library/Mockery/VerificationExpectation.php',
     'ModifyRevField' => $baseDir . '/database/migrations/2017_04_18_180449_modify_rev_field.php',
     'ModifyUserConstraints' => $baseDir . '/database/migrations/2017_04_19_180631_modify_user_constraints.php',
+
+
     'ModifyUserFingerPrintsPk' => $baseDir . '/database/migrations/2017_05_07_220419_modify_user_finger_prints_pk.php',
     'Monolog\\ErrorHandler' => $vendorDir . '/monolog/monolog/src/Monolog/ErrorHandler.php',
     'Monolog\\Formatter\\ChromePHPFormatter' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php',
@@ -2028,6 +2036,7 @@ return array(
     'Monolog\\Processor\\UidProcessor' => $vendorDir . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
     'Monolog\\Processor\\WebProcessor' => $vendorDir . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
     'Monolog\\Registry' => $vendorDir . '/monolog/monolog/src/Monolog/Registry.php',
+
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
     'PHPUnit\\Framework\\BaseTestListener' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
     'PHPUnit\\Framework\\TestCase' => $vendorDir . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
@@ -3477,6 +3486,9 @@ return array(
     'Tests\\TestCase' => $baseDir . '/tests/TestCase.php',
     'Tests\\Unit\\ExampleTest' => $baseDir . '/tests/Unit/ExampleTest.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+
+    'UpdateIqTestDb' => $baseDir . '/database/migrations/2017_05_08_044324_update_iq_test_db.php',
+
     'TijsVerkoyen\\CssToInlineStyles\\CssToInlineStyles' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/CssToInlineStyles.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Processor' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Processor.php',
     'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Processor' => $vendorDir . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Processor.php',
@@ -3486,6 +3498,7 @@ return array(
     'UpdateIqTestDb' => $baseDir . '/database/migrations/2017_05_08_044324_update_iq_test_db.php',
     'Webmozart\\Assert\\Assert' => $vendorDir . '/webmozart/assert/src/Assert.php',
     'XdgBaseDir\\Xdg' => $vendorDir . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+
     'eventsTableSeeder' => $baseDir . '/database/seeds/eventsTableSeeder.php',
     'mediaTableSeeder' => $baseDir . '/database/seeds/mediaTableSeeder.php',
     'phpDocumentor\\Reflection\\DocBlock' => $vendorDir . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
