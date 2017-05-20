@@ -54,6 +54,11 @@
     </div>
   </div>
   </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
 <script>
 var xmlhttp;
    
@@ -233,6 +238,11 @@ function displaycarousel()
 
                  // console.log(arr.result.length);
                   // console.log(arr);
+
+         //         <div class="carousel-caption">
+          //<h3>New York</h3>
+          //<p>We love the Big Apple!</p>
+        //</div>
 
                   var indicator_cont=document.getElementById("car_ind");
 var inds="";

@@ -44,7 +44,10 @@
                             <label class="control-label" for="name"> Address</label> <input class="form-control" id="address" name="address"
                             placeholder="choose name" required="" title="Please enter you name" type="text"> <span class="help-block"><strong id="register-errors-address"></strong></span> <span class="help-block small"></span>
                         </div>
-
+ <label for='pic'class="col-md-4 control-label">Profile picture</label>
+                         <div class="col-md-6">
+                       <input type="file" name="pic" class="" data-multiple-caption="{count} files selected" multiple />
+                      </div>
                          <div class="form-group" id ="register-membership">
                               <label class="col-md-4 control-label">Membership</label>
                                    <div class="col-md-6 selectContainer">
@@ -61,12 +64,9 @@
                                </div>
                               </div>
 
-                           <div class="form-group">                         
-                         <label for='pic'class="col-md-4 control-label">Profile picture</label>
-                         <div class="col-md-6">
-                       <input type="file" name="pic" class="" data-multiple-caption="{count} files selected" multiple />
-                      </div>
-                       </div>
+                                                 
+                        
+                      
 
                         
                            <div class="form-group">

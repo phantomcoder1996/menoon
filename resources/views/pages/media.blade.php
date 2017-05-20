@@ -20,7 +20,10 @@
     <div class="modal1-dialog">
         <div class="modal1-content">
             
-                       <div class="modal1-header">Events</div>
+                       <div class="modal1-header" >
+                       <h4 id="hello1"></h4>
+                       <button type="button" class="close" data-dismiss="modal">&times;</button>
+                       </div>
                 <div class="modal1-body">
 
  
@@ -35,7 +38,7 @@
 
          </div>
    
-      </div>
+  
 
          <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -47,8 +50,18 @@
       <span class="sr-only">Next</span>
     </a>
 
+     </div>
+</div>
  
+
+<div class="modal-footer" id="attatch">
+       
+               
+                
+     
+      
   </div>
   </div>
   </div>
   </div>
+  

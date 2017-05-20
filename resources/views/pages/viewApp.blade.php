@@ -1,10 +1,10 @@
-@extends("layouts.admin")
+@extends("layouts.viewApp")
 
 @section("viewApp")
 
 
     <div class="container">
-<div style="display:none" id="app">
+<div id="app">
     <h3>Applicants Information</h3><hr>
     <table class="table table-hover" >
 
@@ -19,19 +19,23 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($users as $user)
+   @for($i=0;$i<sizeof($users);$i++)
         <tr>
 
-            <td>{{$user->username}}</td>
-            <td>{{$user->application_date}}</td>
-            <td>{{$user->iq_test_score}}</td>
-            <td>{{$user->money_paid}}</td>
+            <td>{{$userName[$i]}}</td>
+            <td>{{$users[$i]->application_date}}</td>
+            <td>{{$users[$i]->iq_test_score}}</td>
+            <td>{{$users[$i]->money_paid}}</td>
 
         </tr>
-        @endforeach
+
+      @endfor
 
         </tbody>
     </table>
+    <br>
+    <a   href="{{route("pages.viewEvents")}}" class="btn" style="background-color:#2C3E50;color:white;" id="viewApp">Choose another event</a>
+
 </div>
 
 

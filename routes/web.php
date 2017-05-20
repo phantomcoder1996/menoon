@@ -24,6 +24,10 @@ Route::get('/bs', function () {
     return view('firstbootstrap');
 });
 
+Route::get('/home1', function(){
+  return view('home');
+});
+
 Route::resource('feedback','FeedbackController');
 Route::resource('fingerprints','addFingerprints');
 Route::resource('iqtest','iqTest');
@@ -38,18 +42,41 @@ Route::get('/media','MediaController@getmedia');
   //       'as' => 'event'
   //   ]);
 
+Route::get('register/verify/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'Auth\RegisterController@confirm'
+]);
+
 Route::get('/media2/{id}','MediaController@getpic');
-Route::post('admins_logout', 'adminAuth\LoginController@logout');
-Route::get('admins_login', 'adminAuth\LoginController@showLoginForm');
-Route::post('admins_login', 'adminAuth\LoginController@login');
+
+Route::post('admins_logout', 'adminAuth\LoginControllr@logout');
+Route::get('admins_login', 'adminAuth\LoginControllr@showLoginForm');
+Route::post('admins_login', 'adminAuth\LoginControllr@login');
+
+
+Route::group(['middleware' => 'admin_guest'], function() {
+
+
+Route::get('admins_login', 'adminAuth\LoginControllr@showLoginForm');
+Route::post('admins_login', 'adminAuth\LoginControllr@login');
+//Password reset routes
+Route::get('admins_password/reset', 'adminAuth\ForgotPasswordController@showLinkRequestForm');
+Route::post('admins_password/email', 'adminAuth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('admins_password/reset/{token}', 'adminAuth\ResetPasswordController@showResetForm');
+Route::post('admins_password/reset', 'adminAuth\ResetPasswordController@reset');
+});
 
 
 Route::group(['middleware' => 'admin_auth'], function() {
 
-    Route::post('admin_logout', 'adminAuth\LoginController@logout');
-    Route::get('/admin_home', function () {
-        return view('admin.home');
-    });
+
+Route::post('admins_logout', 'adminAuth\LoginControllr@logout');
+Route::get('/admins_home', function(){
+  return view('admin.home');
+
+   
+
+});
 });
 
 
@@ -105,6 +132,8 @@ Route::group(["middleware"=>"auth"],function()
   });
 });
 
+
+
 Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
 
 
@@ -119,12 +148,87 @@ Route::get('/CreateEvent', function () {
 });
 Route::post('createEvent','createEventController@createEvent');
 
-Route::get('/Admin', [
-    'uses' => 'adminController@viewEvents',
-    'as' => 'pages.viewEvents'
+
+
+
+Route::get('/mediauploader','PhotoUploadController@getview');
+Route::get('/mediauploader/{id}',[
+    'uses' => 'PhotoUploadController@getPhotosEvent',
+    'as' => 'mediaAdmin.insert'
 
 ]);
 
+Route::post('/mediauploader/{id}',[
+    'uses' => 'PhotoUploadController@uploadPhotosEvent',
+    'as' => 'mediaAdmin.insert'
+
+]);
+
+Route::get('/mediauploader1/{id}',[
+    'uses' => 'PhotoUploadController@deletePhotosEvent',
+    'as' => 'mediaAdmin.delete'
+
+]);
+
+Route::get('/tags',[
+    'uses' => 'ApproveTagsController@getview',
+    'as' => 'tagAdmin.view'
+
+]);
+
+Route::get('/tags',[
+    'uses' => 'ApproveTagsController@getviewappdis',
+    'as' => 'tagAdmin.appdis'
+
+]);
+
+Route::get('/tags',[
+    'uses' => 'ApproveTagsController@getviewremove',
+    'as' => 'tagAdmin.remove'
+
+]);
+
+Route::get('/tagr1/{id}',[
+    'uses' => 'ApproveTagsController@removetag',
+    'as' => 'tagAdmin.removetag'
+
+]);
+
+Route::get('/tagapp1/{id}',[
+    'uses' => 'ApproveTagsController@approve',
+    'as' => 'tagAdmin.app'
+
+]);
+
+Route::get('/tagdisapp1/{id}',[
+    'uses' => 'ApproveTagsController@disapprove',
+    'as' => 'tagAdmin.disapp'
+
+]);
+
+Route::get('/gallery',[
+    'uses' => 'MediaController@getgallery',
+    'as' => 'pages.gallery'
+
+]);
+Route::get('/gallery/{id}',[
+    'uses' => 'MediaController@galleryview',
+    'as' => 'pages.galleryview'
+
+]);
+
+Route::get('/tagging/{id}',[
+    'uses' => 'MediaController@gettagged',
+    'as' => 'pages.gallerytag'
+
+]);
+Route::get('/mymedia',[
+    'uses' => 'MediaController@getmymedia',
+    'as' => 'pages.mygalleryview'
+
+]);
+
+Route::get('/Admin','adminController@viewEvents')->name("pages.viewEvents");
 
 Route::resource('approvalAdmin','approval_admin_controller');
 
@@ -133,4 +237,7 @@ Route::post('/createAdmin',['uses'=>'createAdmin@store']);
 Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
 
 Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
+
+
+Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
 

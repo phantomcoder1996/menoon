@@ -12,6 +12,12 @@
     {!!Html::style('css/menoon.css')!!}
     <script src="{{ asset('vendor/jquery/jquery.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.js') }}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/bootstrap-collapse.js')}}"></script>
+<script src="{{asset('js/bootstrap-carousel.js')}}"></script>
+
+<script src="{{asset('js/jquery-1.7.2.min.js')}}"></script>
+
     <link rel="icon" href="{{ asset('favicon.ico') }}">
  
 
