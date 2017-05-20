@@ -125,12 +125,11 @@ Route::get('/#Media', function () {
 
 
 
-Route::group(["middleware"=>"auth"],function()
-{
+
   Route::get('/fullAccess',function(){
     return view('pages/Admin/fullAccessAdmin');
   });
-});
+
 
 
 
