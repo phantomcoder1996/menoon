@@ -17,12 +17,12 @@
 
 <div >@yield("morefeedback")<br></div>
  @yield("messages")
-<div id="feedback" class="w3-container" style="margin-top:10%;text-align:center">
-    </div>
+
 
 <div id="Contact">@yield("contact")</div>
 
-
+<div id="feedback" class="w3-container" style="margin-top:10%;text-align:center">
+</div>
 
 <!-- jQuery -->
 {!! Html::script( "vendor/jquery/jquery.min.js")!!}
