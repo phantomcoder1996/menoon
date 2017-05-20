@@ -18,6 +18,7 @@ class CreateUserEventApplicationsTable extends Migration
             $table->timestamps();
             $table->integer('user_id');
             $table->integer('event_id');
+            $table->text('event_name');
             $table->date('application_date');
             $table->integer('iq_test_score')->nullable();
             $table->boolean('money_paid')->default(false);

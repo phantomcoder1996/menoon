@@ -205,6 +205,7 @@ Route::group(["middleware"=>"auth"],function()
 
 
 
+Route::get('/Profile','profileController@events')->name("home.Profile");
 
 
 
@@ -254,9 +255,19 @@ Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
 
 Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
 
+Route::get('addmoney/stripe', array('as' => 'pages.paywithstripe','uses' => 'AddMoneyController@payWithStripe',))->name('pages.paywithstripe');
+Route::post('addmoney/stripe', array('as' => 'pages.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
+Route::post('updateProfile','profileController@profile')->name("pages.updateInfo");
+Route::post('updateAccount','profileController@account')->name("pages.updateAccount");
+Route::post('Update_Account','profileController@account2')->name("pages.Update_Account");
+Route::post('updateEmail','profileController@email')->name("pages.updateEmail");
+Route::post('requestCertificate','profileController@certificate')->name("pages.certificate");
+Route::post('updatePic','profileController@profilePic')->name("pages.updatePic");
+
 
   Route::get('/Profile', function () {
-    //
+
     return view('pages.updateInfo');
 })->name('home.Profile');
+
 
