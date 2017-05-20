@@ -98,7 +98,7 @@ public function gettagged($id)
   $u = DB::table('users')->where('username', Auth::user()->username)->first();
  
   $tag = DB::table('tagtables')->where('user_id', '=', $u->id)->where('media_id',$id)->get();
-}
+
   if(count($tag)==0)
   { //dd(1);
     DB::table('tagtables')->insert(
@@ -109,6 +109,10 @@ public function gettagged($id)
   }
   Session::flash('status','Sorry it seems you have already tagged yourself please wait for approval thanks');
   return redirect()->back()->with(['status'=>'Sorry it seems you have already tagged yourself please wait for approval thanks']);
+}
+  else 
+    Session::flash('status','please login first');
+  return redirect()->back()->with(['status'=>'please login first']);
 }
 
 public function getmymedia()

@@ -65,6 +65,15 @@ Route::post('admins_password/email', 'adminAuth\ForgotPasswordController@sendRes
 Route::get('admins_password/reset/{token}', 'adminAuth\ResetPasswordController@showResetForm');
 Route::post('admins_password/reset', 'adminAuth\ResetPasswordController@reset');
 });
+//auth
+Route::group(['middleware' => 'auth'], function() {
+
+  
+    });
+
+
+
+
 
 
 Route::group(['middleware' => 'admin_auth'], function() {
@@ -77,7 +86,64 @@ Route::get('/admins_home', function(){
    
 
 });
+Route::get('/mediauploader','PhotoUploadController@getview');
+Route::get('/mediauploader/{id}',[
+    'uses' => 'PhotoUploadController@getPhotosEvent',
+    'as' => 'mediaAdmin.insert'
+
+]);
+
+Route::post('/mediauploader/{id}',[
+    'uses' => 'PhotoUploadController@uploadPhotosEvent',
+    'as' => 'mediaAdmin.insert'
+
+]);
+
+Route::get('/mediauploader1/{id}',[
+    'uses' => 'PhotoUploadController@deletePhotosEvent',
+    'as' => 'mediaAdmin.delete'
+
+]);
+
+Route::get('/tags',[
+    'uses' => 'ApproveTagsController@getview',
+    'as' => 'tagAdmin.view'
+
+]);
+
+Route::get('/tags1',[
+    'uses' => 'ApproveTagsController@getviewappdis',
+    'as' => 'tagAdmin.appdis'
+
+]);
+
+Route::get('/tagsa',[
+    'uses' => 'ApproveTagsController@getviewremove',
+    'as' => 'tagAdmin.remove'
+
+]);
+
+Route::get('/tagr1/{id}',[
+    'uses' => 'ApproveTagsController@removetag',
+    'as' => 'tagAdmin.removetag'
+
+]);
+
+Route::get('/tagapp1/{id}',[
+    'uses' => 'ApproveTagsController@approve',
+    'as' => 'tagAdmin.app'
+
+]);
+
+Route::get('/tagdisapp1/{id}',[
+    'uses' => 'ApproveTagsController@disapprove',
+    'as' => 'tagAdmin.disapp'
+
+]);
+Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
+
 });
+
 
 
 Route::get('/forget-password','ForgetPasswordController@forgotpassword');
@@ -134,13 +200,10 @@ Route::group(["middleware"=>"auth"],function()
 
 
 
-Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPrints');});
 
 
-Route::get('/Profile', function () {
-    //
-    return view('pages.updateInfo');
-})->name('home.Profile');
+
+
 
 Route::get('/CreateEvent', function () {
     //
@@ -151,60 +214,6 @@ Route::post('createEvent','createEventController@createEvent');
 
 
 
-Route::get('/mediauploader','PhotoUploadController@getview');
-Route::get('/mediauploader/{id}',[
-    'uses' => 'PhotoUploadController@getPhotosEvent',
-    'as' => 'mediaAdmin.insert'
-
-]);
-
-Route::post('/mediauploader/{id}',[
-    'uses' => 'PhotoUploadController@uploadPhotosEvent',
-    'as' => 'mediaAdmin.insert'
-
-]);
-
-Route::get('/mediauploader1/{id}',[
-    'uses' => 'PhotoUploadController@deletePhotosEvent',
-    'as' => 'mediaAdmin.delete'
-
-]);
-
-Route::get('/tags',[
-    'uses' => 'ApproveTagsController@getview',
-    'as' => 'tagAdmin.view'
-
-]);
-
-Route::get('/tags',[
-    'uses' => 'ApproveTagsController@getviewappdis',
-    'as' => 'tagAdmin.appdis'
-
-]);
-
-Route::get('/tags',[
-    'uses' => 'ApproveTagsController@getviewremove',
-    'as' => 'tagAdmin.remove'
-
-]);
-
-Route::get('/tagr1/{id}',[
-    'uses' => 'ApproveTagsController@removetag',
-    'as' => 'tagAdmin.removetag'
-
-]);
-
-Route::get('/tagapp1/{id}',[
-    'uses' => 'ApproveTagsController@approve',
-    'as' => 'tagAdmin.app'
-
-]);
-
-Route::get('/tagdisapp1/{id}',[
-    'uses' => 'ApproveTagsController@disapprove',
-    'as' => 'tagAdmin.disapp'
-
-]);
 
 Route::get('/gallery',[
     'uses' => 'MediaController@getgallery',
@@ -240,4 +249,10 @@ Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');
 
 
 Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
+
+
+  Route::get('/Profile', function () {
+    //
+    return view('pages.updateInfo');
+})->name('home.Profile');
 

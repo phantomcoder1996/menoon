@@ -39,8 +39,30 @@ public function authenticated(Request $request , $user)
     { if($user->role === 'tagger') {
             return redirect()->intended('/tags');
         }
-        else if($user->role ==='')
-
+        else if($user->role ==='media_uploader')
+        {
+          return redirect()->intended('/mediauploader');
+        }
+         else if($user->role ==='event_interviewer')
+        {
+          
+        }
+           else if($user->role ==='approval')
+        {
+          
+        }
+           else if($user->role ==='event_creator')
+        {
+          
+        }
+           else if($user->role ==='event_attendance')
+        {
+          
+        }
+         else if($user->role ==='data_entry')
+        {
+          
+        }
         return redirect()->intended('/home1');
     }
 
