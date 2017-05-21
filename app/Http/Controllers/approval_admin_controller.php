@@ -16,7 +16,7 @@ class approval_admin_controller extends Controller
     {
         //
 
-        $users=DB::table('Users')->select('fname','lname','id','username')->where('confirmed',0)->get();
+        $users=DB::table('Users')->select('fname','lname','id','username')->where('verified',0)->get();
 
         return view('pages.Admin.adminApproval',['users'=>$users]);
     }
@@ -59,7 +59,7 @@ class approval_admin_controller extends Controller
 
         }
 
-        DB::table('Users')->where('id',$request->get('id'))->update(['confirmed'=>1]);
+        DB::table('Users')->where('id',$request->get('id'))->update(['verified'=>1]);
 
         return redirect('/approvalAdmin');
 
