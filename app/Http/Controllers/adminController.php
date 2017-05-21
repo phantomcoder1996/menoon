@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use dateTime;
 use App\User;
 use App\user_emails;
 use App\user_event_applications;
 use App\events;
+use App\event_attendance;
 class adminController extends Controller
 {
 
@@ -19,6 +20,7 @@ class adminController extends Controller
 
         return view('pages.viewEvents', ['events' => $Events]);
     }
+
     public function viewApp(Request $request)
     {
         $id=DB::table('events')->select('id')->where('name','=',$request->eventName)->get();
@@ -27,18 +29,36 @@ class adminController extends Controller
         $users=user_event_applications::where("event_id","=",$id[0]->id)->get();
 
 
-      for($i=0 ;$i<sizeof($users) ;$i++)
-          $userName[$i]=DB::table('users')->select('username')->where('id','=',$users[$i]["user_id"])->get();
 
-        // $userName[$i]=DB::table('users')->select('username')->where('id','=',$users->all()[$i]["user_id"])->get()->toArray();
-      // $userName2= json_decode(json_encode($userName));
-       // echo($userName2[0]);
-
-
-       // echo ($users[0]);
-      // echo($userName);
-
-    return view('pages.viewApp', ['users' => $users,'userName'=>$userName]);
+    return view('pages.viewApp', ['users' => $users]);
     }
 
+    public function viewApp2(Request $request)
+    {
+        $id=DB::table('events')->select('id')->where('name','=',$request->eventName)->get();
+        $users[]=0;
+        $userName[]=0;
+        $users=user_event_applications::where("event_id","=",$id[0]->id)->get();
+
+      return view('pages.setAttendence', ['users' => $users]);
+    }
+ public function setAttendence(Request $request, $id)
+    {
+
+        $users=user_event_applications::where("event_id","=",$id)->get();
+        $ID=User::where('username','=',$request->username)->first();
+        $dt = new DateTime();
+       //    echo $dt->format('Y-m-d');
+        DB::table('event_attendances')->insert(
+            ['user_id' =>$ID->id , 'event_id' => $id,'day' => $dt->format('Y-m-d')]
+        );
+
+      //  echo($ID->id);
+      return view('pages.setAttendence2',['id' =>$id,'users' => $users]);
+    }
+
+
+
+
 }
+

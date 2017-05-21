@@ -91,50 +91,58 @@ class profileController extends Controller
         {
             if($request->primary!="")
             {
-                $userMail=user_emails::where('user_id','=',$request->user_id)->first();
-              //  $userMail->email=$request->primary;
-               // $userMail->primary1='1';
-              //  $userMail->mailinglist_flag='0';
-              //  $userMail->save();
-               // echo($userMail->email);
-                echo ('primary');
+
+                DB::table('user_emails')
+                    ->where('user_id', $request->user_id)
+                    ->update(['email' => $request->primary,
+                    'primary1'=>1,
+                    'mailinglist_flag'=> 0]);
+
             }
 
 
             $user->save();
-            echo ('nothing1');
+
 
         }
-        else
-            echo ('nothing');
-        echo ($request->primary);
 
-     //        return view('pages.updateInfo', ['events' => $events]);
+
+       return view('pages.updateInfo', ['events' => $events]);
     }
     public function certificate(Request $request)
     {
         $events=user_event_applications::where('user_id','=',$request->user_id)->get();
-        $id=events::where('name','=',$request->eventName);
-        $cer=new certificates();
-        $cer->user_id=$request->input('user_id');
-        $cer->event_id=$id[0]->id;
-        $cer->save();
-       return view('pages.updateInfo', ['events' => $events]);
+        $id=events::where('name','=',$request->eventName)->get();
+
+
+      $eventID=certificates::where('event_id','=',$id[0]->id)->get();
+
+     if(sizeof($eventID)==0)
+        { DB::table('certificates')->insert(
+            ['user_id' => $request->user_id, 'event_id' => $id[0]->id]
+        );}
+      return view('pages.updateInfo', ['events' => $events]);
     }
+
+
+
     public function profilePic(Request $request)
     {
         $events = user_event_applications::where('user_id', '=', $request->user_id)->get();
 
 
-        $user = User::where('id', '=', $request->user_id)->first();
+        //$user = User::where('id', '=', $request->user_id)->first();
           //  if($request->pic!=NULL)
            //  $user->pic = $request->pic;
 
 
           //  $user->save();
+        DB::table('users')->where('id', '=', $request->user_id)
+        ->update(
+            ['pic' =>  $request->pic]
+        );
 
-
-echo($request->pic);
+        echo($request->pic);
        // return view('pages.updateInfo', ['events' => $events]);
 
     }
