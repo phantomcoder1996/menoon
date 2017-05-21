@@ -152,8 +152,9 @@ Route::get('/addFingerPrint',function(){return view('pages/Admin/uploadFingerPri
 Route::post('/createAdmin',['uses'=>'createAdmin@store']);
 Route::get('/createAdminView',function(){return view('pages.Admin.createAdmin');});
 Route::resource('approvalAdmin','approval_admin_controller');
+
 Route::get('/fullAccess',function(){
-    return view('pages/Admin/fullAccessAdmin');
+    return view('pages.Admin.fullAccessAdmin');
   });
 
     Route::get('/CreateEvent', function () {
@@ -163,11 +164,7 @@ Route::get('/fullAccess',function(){
     Route::get('/acceptInterviewees',['uses'=>'accept_or_reject_interviewees@index']);
 
 });
-//////////////////////////////////////////////
 
-
-
-/////////////////////////////////////////////
 Route::get('/forget-password','ForgetPasswordController@forgotpassword');
 Route::post('/forget-password','ForgetPasswordController@postForgotPassword');
 Auth::routes();
@@ -213,11 +210,6 @@ Route::get('/#Media', function () {
 
 
 
-
-
-//  Route::get('/fullAccess',function(){
-//    return view('pages/Admin/fullAccessAdmin');
-//  });
 
 
 
