@@ -50,32 +50,32 @@
             <div class="form-group">
 
                 <label for="name"> Name:</label>
-                <input type="text" class="form-control" id="name" style="width:60%" name="name">
+                <input type="text" class="form-control" id="name" style="width:60%" name="name" required>
             </div>
             <div class="form-group">
                 <label for="sdate">Start Date:</label>
-                <input type="date" class="form-control" id="sdate" style="width:60%" name="startDate">
+                <input type="date" class="form-control" id="sdate" style="width:60%" name="startDate" required>
             </div>
             <div class="form-group">
                 <label for="edate">End Date:</label>
-                <input type="date" class="form-control" id="edate" style="width:60%" name="endDate">
+                <input type="date" class="form-control" id="edate" style="width:60%" name="endDate" required>
             </div>
             <div class="form-group">
                 <label for="cnt">Country:</label>
-                <input type="text" class="form-control" id="cnt" style="width:60%" name="country">
+                <input type="text" class="form-control" id="cnt" style="width:60%" name="country" required>
             </div>
             <div class="form-group">
                 <label for="tt">Title:</label>
-                <input type="text" class="form-control" id="tt" style="width:60%" name="title">
+                <input type="text" class="form-control" id="tt" style="width:60%" name="title" required>
             </div>
              <div class="form-group">
                 <label for="place">Place:</label>
-                <input type="text" class="form-control" id="place" style="width:60%" name="place">
+                <input type="text" class="form-control" id="place" style="width:60%" name="place" required>
             </div>
 
             <div class="form-group">
                 <label for="des">Description:</label>
-                <textarea type="text" class="form-control" id="des"  style="width:60%" name="description"></textarea>
+                <textarea type="text" class="form-control" id="des"  style="width:60%" name="description" required></textarea>
             </div>
             <div class="form-group">
                 <label for="des">Certificate:</label>
