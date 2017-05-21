@@ -53,7 +53,7 @@ public function authenticated(Request $request , $user)
         }
            else if($user->role ==='event_creator')
         {
-           return redirect()->intended('/createEvents');
+           return redirect()->intended('/CreateEvent');
         }
            else if($user->role ==='event_attendance')
         {
