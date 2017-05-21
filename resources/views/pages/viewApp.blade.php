@@ -19,17 +19,17 @@
         </tr>
         </thead>
         <tbody>
-   @for($i=0;$i<sizeof($users);$i++)
+   @foreach($users as $user)
         <tr>
 
-            <td>{{$userName[$i]}}</td>
-            <td>{{$users[$i]->application_date}}</td>
-            <td>{{$users[$i]->iq_test_score}}</td>
-            <td>{{$users[$i]->money_paid}}</td>
+            <td>{{$user->username}}</td>
+            <td>{{$user->application_date}}</td>
+            <td>{{$user->iq_test_score}}</td>
+            <td>{{$user->money_paid}}</td>
 
         </tr>
 
-      @endfor
+      @endforeach
 
         </tbody>
     </table>

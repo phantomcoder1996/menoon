@@ -259,11 +259,8 @@ Route::post('Update_Account','profileController@account2')->name("pages.Update_A
 Route::post('updateEmail','profileController@email')->name("pages.updateEmail");
 Route::post('requestCertificate','profileController@certificate')->name("pages.certificate");
 Route::post('updatePic','profileController@profilePic')->name("pages.updatePic");
+Route::post('setAttendence','adminController@viewApp2')->name("pages.setAttendence");
+Route::post('set_attendence/{id}','adminController@setAttendence')->name("pages.setAttendence2/{id}");
 
-
-  Route::get('/Profile', function () {
-
-    return view('pages.updateInfo');
-})->name('home.Profile');
 
 
