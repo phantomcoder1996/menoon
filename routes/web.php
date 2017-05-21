@@ -273,6 +273,7 @@ Route::post('requestCertificate','profileController@certificate')->name("pages.c
 Route::post('updatePic','profileController@profilePic')->name("pages.updatePic");
 Route::post('setAttendence','adminController@viewApp2')->name("pages.setAttendence");
 Route::post('set_attendence/{id}','adminController@setAttendence')->name("pages.setAttendence2/{id}");
+Route::post('/','eventController@payment')->name("pages.payment");
 
 
 

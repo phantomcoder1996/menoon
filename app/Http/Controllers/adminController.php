@@ -54,7 +54,7 @@ class adminController extends Controller
         );
 
       //  echo($ID->id);
-      return view('pages.setAttendence2',['id' =>$id,'users' => $users]);
+     return view('pages.setAttendence2',['id' =>$id,'users' => $users]);
     }
 
 

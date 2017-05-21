@@ -42,7 +42,7 @@
 
  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
 
@@ -50,56 +50,29 @@
 
           <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <img class="img-responsive pull-right modal-title" src="http://i76.imgup.net/accepted_c22e0.png">
-              <h4 class="modal-title" style="margin-top:2%">Payment Details</h4>
-          </div>
-          <div class="modal-body">
-              <label for="cardNumber">CARD NUMBER</label><br>
-              <input
-                      type="tel"
-                      class="form-control"
-                      name="cardNumber"
-                      placeholder="Valid Card Number"
-                      autocomplete="cc-number"
-                      required autofocus
-              /><br>
-              <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span>
-                  <span class="visible-xs-inline">EXP</span> DATE
-              </label>
-              <br>
-              <input
-                      type="tel"
-                      class="form-control"
-                      name="cardExpiry"
-                      placeholder="MM / YY"
-                      autocomplete="cc-exp"
-                      required
-              />
-              <br>
-              <label for="cardCVC">CV CODE</label><br>
-              <input
-                      type="tel"
-                      class="form-control"
-                      name="cardCVC"
-                      placeholder="CVC"
-                      autocomplete="cc-csc"
-                      required
-              /><br>
-              <label for="couponCode">COUPON CODE</label><br>
-              <input type="text" class="form-control" name="couponCode" /><br>
 
+              <h4 class="modal-title" style="margin-top:2%">Payment </h4>
+          </div>
+          <form method="POST"  action="{{route('pages.payment')}}">
+              {{csrf_field()}}
+          <div class="modal-body">
+              <label for="f">Upload photo copy:</label><br>
+              <input type="file" name="pic" class="form-control" id="f"  style="width:60%" >
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal" style="background-color:#2C3E50;color:white">Close</button>
-              <button type="button" class="btn btn-default" style="background-color:#2C3E50;color:white" >Submit</button>
+              <button type="submit" class="btn btn-default" style="background-color:#2C3E50;color:white" >Submit</button>
 
           </div>
-
+          </form>
       </div>
 </div>
+     -->
 </div>
 
 </div>
+
+
 
 @endsection
 @section("nav")

@@ -13,7 +13,7 @@ use App\User;
 use App\user_emails;
 use App\user_event_applications;
 use App\events;
-
+use Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 class profileController extends Controller
@@ -22,15 +22,17 @@ class profileController extends Controller
     {
         $events = user_event_applications::where('user_id', '=',Auth::user()->id)->get();
 
+        $userProfile = User::where('id', '=',Auth::user()->id)->get();
 
-       // echo ($events[0]->event_name);
-            return view('pages.updateInfo', ['events' => $events]);
+
+      // echo ($userProfile[0]->pic);
+         return view('pages.updateInfo', ['events' => $events,'profile'=>$userProfile]);
 
     }
     public function profile(Request $request)
     {
         $events = user_event_applications::where('user_id', '=', $request->user_id)->get();
-
+        $userProfile = User::where('id', '=',Auth::user()->id)->get();
 
         $user = User::where('id', '=', $request->user_id)->first();
 
@@ -49,13 +51,12 @@ class profileController extends Controller
 
             }
 
-     return view('pages.updateInfo', ['events' => $events]);
-
+        return view('pages.updateInfo', ['events' => $events,'profile'=>$userProfile]);
     }
     public function account(Request $request)
     {
         $events=user_event_applications::where('user_id','=',$request->user_id)->get();
-
+        $userProfile = User::where('id', '=',Auth::user()->id)->get();
         $user=User::where('id','=',$request->user_id)->first();
         if($request->old==$request->confirm)
         {
@@ -67,12 +68,13 @@ class profileController extends Controller
             }
 
         }
-        return view('pages.updateInfo', ['events' => $events]);
+        return view('pages.updateInfo', ['events' => $events,'profile'=>$userProfile]);
     }
 
     public function account2(Request $request)
     {
         $events=user_event_applications::where('user_id','=',$request->user_id)->get();
+        $userProfile = User::where('id', '=',Auth::user()->id)->get();
         $user=User::where('id','=',$request->user_id)->first();
         if(password_verify($request->confirm,$user->password))
         {
@@ -81,11 +83,12 @@ class profileController extends Controller
             $user->save();
 
         }
-        return view('pages.updateInfo', ['events' => $events]);
+        return view('pages.updateInfo', ['events' => $events,'profile'=>$userProfile]);
     }
     public function email(Request $request)
     {
         $events=user_event_applications::where('user_id','=',$request->user_id)->get();
+        $userProfile = User::where('id', '=',Auth::user()->id)->get();
         $user=User::where('id','=',$request->user_id)->first();
         if(password_verify($request->password,$user->password))
         {
@@ -106,11 +109,11 @@ class profileController extends Controller
 
         }
 
-
-       return view('pages.updateInfo', ['events' => $events]);
+        return view('pages.updateInfo', ['events' => $events,'profile'=>$userProfile]);
     }
     public function certificate(Request $request)
     {
+        $userProfile = User::where('id', '=',Auth::user()->id)->get();
         $events=user_event_applications::where('user_id','=',$request->user_id)->get();
         $id=events::where('name','=',$request->eventName)->get();
 
@@ -121,29 +124,28 @@ class profileController extends Controller
         { DB::table('certificates')->insert(
             ['user_id' => $request->user_id, 'event_id' => $id[0]->id]
         );}
-      return view('pages.updateInfo', ['events' => $events]);
+        return view('pages.updateInfo', ['events' => $events,'profile'=>$userProfile]);
     }
 
 
 
     public function profilePic(Request $request)
     {
+        $userProfile = User::where('id', '=',Auth::user()->id)->get();
         $events = user_event_applications::where('user_id', '=', $request->user_id)->get();
 
+        $path=0;
+      if($request->hasFile('pic'))
+        $path = Storage::disk('public')->putFile('profilePic', $request->file('pic'));
+else
+    echo("null");
 
-        //$user = User::where('id', '=', $request->user_id)->first();
-          //  if($request->pic!=NULL)
-           //  $user->pic = $request->pic;
-
-
-          //  $user->save();
         DB::table('users')->where('id', '=', $request->user_id)
-        ->update(
-            ['pic' =>  $request->pic]
-        );
+            ->update(
+                ['pic' =>  $path]
+            );
 
-        echo($request->pic);
-       // return view('pages.updateInfo', ['events' => $events]);
+        return view('pages.updateInfo', ['events' => $events,'profile'=>$userProfile]);
 
     }
 }

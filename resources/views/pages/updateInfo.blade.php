@@ -9,7 +9,7 @@
                 <div class="profile-sidebar">
                     <!-- SIDEBAR USERPIC -->
                     <div class="profile-userpic">
-                        <img src="" class="img-responsive" alt="">
+                        <img src="/storage/{{$profile[0]->pic}}" class="img-responsive" alt="" >
                     </div>
                     <!-- END SIDEBAR USERPIC -->
                     <!-- SIDEBAR USER TITLE -->
@@ -18,13 +18,16 @@
                            User 3bit
                         </div>
 
-                        <form method="POST" action="{{route("pages.updatePic")}}">
+                        <form method="POST" action="{{route("pages.updatePic")}}" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div style="height:0px;overflow:hidden">
                                 <input type="file"  id="fileInput" name="pic" />
                             </div>
                    <a class="btn" style="background-color:#2C3E50;color:white" onclick="chooseFile();">Update Pic</a>
                     <button class="btn" type="submit" style="background-color:#2C3E50;color:white;" id="save">Save</button>
+                            @if (!Auth::guest())
+                                <input type="hidden" value= "{{Auth::user()->id}}" name="user_id" id="user_id"></input>
+                            @endif
                         </form>
                     </div>
                     <!-- END SIDEBAR USER TITLE -->
