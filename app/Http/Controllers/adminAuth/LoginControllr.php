@@ -53,11 +53,11 @@ public function authenticated(Request $request , $user)
         }
            else if($user->role ==='event_creator')
         {
-           //return redirect()->intended('/tags');
+           return redirect()->intended('/createEvents');
         }
            else if($user->role ==='event_attendance')
         {
-           //return redirect()->intended('/tags');
+           return redirect()->intended('/setAttendence');
         }
          else if($user->role ==='data_entry')
         {
@@ -67,6 +67,7 @@ public function authenticated(Request $request , $user)
         {
            return redirect()->intended('/fullAccess');
         }
+
         return redirect()->intended('/');
     }
 
