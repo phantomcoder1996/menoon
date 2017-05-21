@@ -9,20 +9,20 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">MeNooN LLC</a>
+            <a class="navbar-brand page-scroll" href="{{route('tagAdmin.view')}}">MeNooN LLC</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            
             <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
+                @if (Auth::guard('web_admins')->guest())
                     <li ><a href="#" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-user"></span> Log In</a></li>
                     <li><a href="#"  data-toggle="modal" data-target="#registerModal" "><span class="glyphicon glyphicon-log-in"></span> Sign Up &nbsp&nbsp&nbsp</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                           {{ Auth::guard('web_admins')->user()->name }}} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
@@ -76,7 +76,17 @@
 
 
       </button> </div>
- 
+
+       <div style="border: 2px solid #a1a1a1;
+    padding: 10px 40px; 
+    background: #dddddd;
+    width: 300px;
+    border-radius: 25px;">Tag Users in events 
+     <button type="button" class="btn btn-default " >
+      <span class="glyphicon glyphicon-tag" aria-hidden="true" onclick="window.location='{{ route("taguserviewevent") }}'" ></span>       
+
+
+      </button> </div> 
 
 
 @endsection

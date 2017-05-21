@@ -24,7 +24,7 @@ class CreateEventAttendancesTable extends Migration
             //$table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
            
         });
-
+   DB::statement('ALTER Table event_attendances add id INTEGER NOT NULL UNIQUE AUTO_INCREMENT;');
         // Schema::table('event_attendances', function (Blueprint $table) {
         //     //$table->increments('id');
         //     $table->primary(array('event_id','user_id','day'));

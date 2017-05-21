@@ -10,7 +10,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="{{route('/mediauploader')}}">MeNooN LLC</a>
+            <a class="navbar-brand page-scroll" href="{{route('tagAdmin.view')}}">MeNooN LLC</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -72,7 +72,7 @@
                             <img src="https://alison.com/images/courses/336" >
                         </div>
                         <div class="holder-bottom">
-                            <a style="overflow: hidden; text-decoration: none;color:black" href="{{route('mediaAdmin.insert',[$event->id])}}">
+                            <a style="overflow: hidden; text-decoration: none;color:black" href="{{route('taguservieweventpic',[$event->id])}}">
                                 <h4> {{$event->name}}</h4>
 
                                 <p>{{$event->title}} ....</p>

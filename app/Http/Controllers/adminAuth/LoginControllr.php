@@ -45,25 +45,29 @@ public function authenticated(Request $request , $user)
         }
          else if($user->role ==='event_interviewer')
         {
-          
+           //return redirect()->intended('/tags');
         }
            else if($user->role ==='approval')
         {
-          
+           return redirect()->intended('approvalAdmin');
         }
            else if($user->role ==='event_creator')
         {
-          
+           //return redirect()->intended('/tags');
         }
            else if($user->role ==='event_attendance')
         {
-          
+           //return redirect()->intended('/tags');
         }
          else if($user->role ==='data_entry')
         {
-          
+           return redirect()->intended('/addFingerPrint');
         }
-        return redirect()->intended('/home1');
+           else if($user->role ==='all')
+        {
+           //return redirect()->intended('/tags');
+        }
+        return redirect()->intended('/');
     }
 
 

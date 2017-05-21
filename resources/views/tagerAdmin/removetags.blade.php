@@ -9,20 +9,20 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">MeNooN LLC</a>
+            <a class="navbar-brand page-scroll" href="{{route('tagAdmin.view')}}">MeNooN LLC</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            
             <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
+                @if (Auth::guard('web_admins')->guest())
                     <li ><a href="#" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-user"></span> Log In</a></li>
                     <li><a href="#"  data-toggle="modal" data-target="#registerModal" "><span class="glyphicon glyphicon-log-in"></span> Sign Up &nbsp&nbsp&nbsp</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                            {{ Auth::guard('web_admins')->user()->name }} <span class="caret"></span>
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
@@ -90,9 +90,18 @@
   <div class="w3-card-4 w3-dark-grey" style="width:50%">
 
     <div class="w3-container w3-center">
-      
+      @if(pathinfo($pic, PATHINFO_EXTENSION) == 'jpeg'||
+      pathinfo($pic, PATHINFO_EXTENSION) == 'png'||pathinfo($pic, PATHINFO_EXTENSION) =='bmp'||
+      pathinfo($pic, PATHINFO_EXTENSION) =='svg+xml'||pathinfo($pic, PATHINFO_EXTENSION) =='jpg')
       <img src="/storage/{{$pic}}" alt="Avatar" style="width:80%">
       <h5>Event</h5>
+      @else 
+        <h5>Event video </h5>
+       <video class="img-thumbnail" controls>
+          <source src="/storage/{{$pic}}" >
+                    
+          </video>   
+      @endif
       <div class="w3-section">
       @foreach($tags as $tag)
       
