@@ -20,7 +20,7 @@ var cardcontainer=document.createElement("div");
 cardcontainer.className="feedback_card";
 
 cardheader=document.createElement("div");
-cardheader.className=" w3-light-blue";
+//cardheader.className=" w3-light-blue";
 cardheader.className+=" feedback_header";
 cardheader.innerHTML=feedback_arr[j].username;
 //cardheader.style="position:relative;top:0;display:flex;height:30px;width:100%;text-align:center;"

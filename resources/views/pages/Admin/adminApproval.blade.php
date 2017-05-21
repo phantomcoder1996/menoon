@@ -1,7 +1,8 @@
 @extends('layouts.adminLayout')
 
 @section('content')
-    <div class="page-header iqTestHeader">Users</div>
+    @include('includes.adminNav')
+    <div class="page-header w3-margin-top">Users</div>
     <div class="w3-container">
         <ul class="w3-ul w3-border">
             @foreach($users as $user)

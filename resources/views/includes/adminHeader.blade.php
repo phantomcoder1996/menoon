@@ -10,7 +10,7 @@
       {!! Html::style( "css/menoon.css")!!}
 
 <script src="{{ asset('vendor/jquery/jquery.js') }}"></script>
-    <script src="{{ asset('vendor/bootstrap/js/bootstrap.js') }}"></script>
+    {{--<script src="{{ asset('vendor/bootstrap/js/bootstrap.js') }}"></script>--}}
     <link rel="icon" href="{{ asset('favicon.ico') }}">
 
  
@@ -33,7 +33,7 @@
 {!! Html::style( "css/events.min.css")!!}
 <!-- Bootstrap Core CSS -->
 
-{!! Html::style( "vendor/bootstrap/css/bootstrap.min.css")!!}
+{{--{!! Html::style( "vendor/bootstrap/css/bootstrap.min.css")!!}--}}
 {!!Html::style('css/w3.css')!!}
 
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" >
@@ -51,7 +51,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>--}}
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -156,7 +156,7 @@
       {!! Html::script("vendor/scrollreveal/scrollreveal.min.js")!!}
       {!! Html::script("vendor/magnific-popup/jquery.magnific-popup.min.js")!!}
       {{--{!! Html::script("//code.jquery.com/ui/1.11.2/jquery-ui.js")!!}--}}
-      {!! Html::script("vendor/bootstrap/js/bootstrap.min.js")!!}
+
       {!! Html::script("vendor/bootstrap/js/bootstrap.js")!!}
 
 

@@ -56,7 +56,7 @@
     @endsection
 @section("feedback")
     @include('pages.feedback')
-    @endsection
+@endsection
 @section("morefeedback")
     @include('pages.more_fb')
     @endsection

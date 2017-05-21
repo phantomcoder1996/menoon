@@ -19,7 +19,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guard('web_admins')->guest())
                     <li ><a href="#" data-toggle="modal" data-target="#loginModal" ><span class="glyphicon glyphicon-user"></span> Log In</a></li>
-                    <li><a href="#"  data-toggle="modal" data-target="#registerModal" "><span class="glyphicon glyphicon-log-in"></span> Sign Up &nbsp&nbsp&nbsp</a></li>
+                    <li><a href="#"  data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-log-in"></span> Sign Up &nbsp&nbsp&nbsp</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
