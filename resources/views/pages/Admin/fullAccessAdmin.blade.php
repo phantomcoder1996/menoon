@@ -178,6 +178,16 @@
 
 
                 </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                    <div class="div-square">
+                        <a href="/viewEvents" >
+                            <i class="fa fa-comments-o fa-5x"></i>
+                            <h4>Set Attendence</h4>
+                        </a>
+                    </div>
+
+
+                </div>
               </div>
                  <!-- /. ROW  --> 
                 <div class="row text-center pad-top">
