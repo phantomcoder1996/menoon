@@ -54,9 +54,7 @@ class addFingerprints extends Controller
         $validator = Validator::make($request->all(),$rules,$messages);
 
         if ($validator->fails()) {
-            return redirect()->back()
-                        ->withErrors($validator,'fingerprints')
-                        ->withInput();
+            return redirect()->back() ->withErrors($validator,'fingerprints')->withInput();
         }
        
         $path = Storage::disk('public')->putFile('finger_print_uploads', $request->file('fingerprint'));
