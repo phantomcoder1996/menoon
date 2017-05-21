@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
-    @include("includes.EventHead")
+    @include('includes.adminHeader')
 </head>
 
 <body>

@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
-    @include("includes.profile")
-    @include("includes.profileHeader")
+    @include('includes.adminHeader')
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" style="background-color:white">

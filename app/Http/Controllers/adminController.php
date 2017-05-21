@@ -18,7 +18,7 @@ class adminController extends Controller
         $Events[]=0;
         $Events=events::all();
 
-        return view('pages.viewEvents', ['events' => $Events]);
+        return view('pages.Admin.viewEvents', ['events' => $Events]);
     }
 
     public function viewApp(Request $request)
@@ -30,7 +30,7 @@ class adminController extends Controller
 
 
 
-    return view('pages.viewApp', ['users' => $users]);
+    return view('pages.Admin.viewApp', ['users' => $users]);
     }
 
     public function viewApp2(Request $request)
@@ -40,7 +40,7 @@ class adminController extends Controller
         $userName[]=0;
         $users=user_event_applications::where("event_id","=",$id[0]->id)->get();
 
-      return view('pages.setAttendence', ['users' => $users]);
+      return view('pages.Admin.setAttendence', ['users' => $users]);
     }
  public function setAttendence(Request $request, $id)
     {
@@ -54,7 +54,7 @@ class adminController extends Controller
         );
 
       //  echo($ID->id);
-     return view('pages.setAttendence2',['id' =>$id,'users' => $users]);
+     return view('pages.Admin.setAttendence2',['id' =>$id,'users' => $users]);
     }
 
 

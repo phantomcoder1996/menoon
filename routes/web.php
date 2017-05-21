@@ -226,6 +226,11 @@ Route::get('/Profile','profileController@events')->name("home.Profile");
 Route::post('createEvent','createEventController@createEvent');
 
 
+Route::get('CreateEvent', function () {
+    //
+    return view('pages.Admin.eventAdmin');
+})->name('admins.eventAdmin');
+
 
 
 
@@ -251,7 +256,7 @@ Route::get('/mymedia',[
 
 ]);
 
-Route::get('/Admin','adminController@viewEvents')->name("pages.viewEvents");
+Route::get('/viewEvents','adminController@viewEvents')->name("pages.Admin.viewEvents");
 
 
 
@@ -262,7 +267,7 @@ Route::get('/eventNames',['uses'=>'createAdmin@getEventNames']);
 
 
 
-Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.viewApp');
+Route::post('/viewApp',['uses'=>'adminController@viewApp'])->name('pages.Admin.viewApp');
 
 Route::get('addmoney/stripe', array('as' => 'pages.paywithstripe','uses' => 'AddMoneyController@payWithStripe',))->name('pages.paywithstripe');
 Route::post('addmoney/stripe', array('as' => 'pages.stripe','uses' => 'AddMoneyController@postPaymentWithStripe'));
@@ -272,8 +277,8 @@ Route::post('Update_Account','profileController@account2')->name("pages.Update_A
 Route::post('updateEmail','profileController@email')->name("pages.updateEmail");
 Route::post('requestCertificate','profileController@certificate')->name("pages.certificate");
 Route::post('updatePic','profileController@profilePic')->name("pages.updatePic");
-Route::post('setAttendence','adminController@viewApp2')->name("pages.setAttendence");
-Route::post('set_attendence/{id}','adminController@setAttendence')->name("pages.setAttendence2/{id}");
+Route::post('setAttendence','adminController@viewApp2')->name("pages.Admin.setAttendence");
+Route::post('set_attendence/{id}','adminController@setAttendence')->name("pages.Admin.setAttendence2/{id}");
 Route::post('/','eventController@payment')->name("pages.payment");
 
 
